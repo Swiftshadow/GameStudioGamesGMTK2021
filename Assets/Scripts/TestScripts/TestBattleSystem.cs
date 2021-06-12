@@ -63,7 +63,7 @@ public class TestBattleSystem : MonoBehaviour
         dialogueText.text = enemyUnit.unitName + " attacks";
         yield return new WaitForSeconds(1f);
         bool isDead = enemyUnit.TakeDamage(enemyUnit.damage);
-        enemyHUD.setHealth(enemyUnit.currentHP);
+        enemyHUD.setHealth(enemyUnit.currentHealth);
         yield return new WaitForSeconds(1f);
         if (isDead)
         {
@@ -119,7 +119,7 @@ public class TestBattleSystem : MonoBehaviour
     }
     IEnumerator PlayerDefend()
     {
-        playerUnit.Defend(5);
+        scientistUnit.Defend(5);
         //do i need something with the HUD here?
         yield return new WaitForSeconds(2f);
         currState = BattleState.ENEMYTURN;
