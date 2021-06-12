@@ -81,7 +81,7 @@ PrefabInstance:
     - target: {fileID: 4296755024153553401, guid: 0bb45a5882db1ce408fa4c628fcf89c3, type: 3}
       propertyPath: onDie
       value: 
-      objectReference: {fileID: 11400000, guid: ac4634c073aa9b94aa84b37630e005b0, type: 2}
+      objectReference: {fileID: 11400000, guid: 951306904e0debb448b9440091fecb11, type: 2}
     - target: {fileID: 4296755024153553401, guid: 0bb45a5882db1ce408fa4c628fcf89c3, type: 3}
       propertyPath: doAction
       value: 
@@ -95,13 +95,45 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 7836bf7e78e14a34c9ada35fb8cc0ab4, type: 2}
     - target: {fileID: 4296755024153553401, guid: 0bb45a5882db1ce408fa4c628fcf89c3, type: 3}
+      propertyPath: stats.name
+      value: Buff Spider
+      objectReference: {fileID: 0}
+    - target: {fileID: 4296755024153553401, guid: 0bb45a5882db1ce408fa4c628fcf89c3, type: 3}
+      propertyPath: resetAttack
+      value: 
+      objectReference: {fileID: 11400000, guid: 3d1ae8a33663c1640bc08778e5e5f040, type: 2}
+    - target: {fileID: 4296755024153553401, guid: 0bb45a5882db1ce408fa4c628fcf89c3, type: 3}
+      propertyPath: modifyAttack
+      value: 
+      objectReference: {fileID: 11400000, guid: 3ae81a7c732a7344b824a3ae12412d38, type: 2}
+    - target: {fileID: 4296755024153553401, guid: 0bb45a5882db1ce408fa4c628fcf89c3, type: 3}
+      propertyPath: requestStats
+      value: 
+      objectReference: {fileID: 11400000, guid: c10b5a8b2ddd35c4f9c679a4cb69e5e2, type: 2}
+    - target: {fileID: 4296755024153553401, guid: 0bb45a5882db1ce408fa4c628fcf89c3, type: 3}
+      propertyPath: resetDefense
+      value: 
+      objectReference: {fileID: 11400000, guid: a173cdebb76b0c242932506216b1e953, type: 2}
+    - target: {fileID: 4296755024153553401, guid: 0bb45a5882db1ce408fa4c628fcf89c3, type: 3}
+      propertyPath: modifyDefense
+      value: 
+      objectReference: {fileID: 11400000, guid: d397a9a6aa37dff48abfc3c8d6d5cbd9, type: 2}
+    - target: {fileID: 4296755024153553401, guid: 0bb45a5882db1ce408fa4c628fcf89c3, type: 3}
+      propertyPath: receiveDamage
+      value: 
+      objectReference: {fileID: 11400000, guid: 4273b60d6c3558c45a2e90ec79b7cea4, type: 2}
+    - target: {fileID: 4296755024153553401, guid: 0bb45a5882db1ce408fa4c628fcf89c3, type: 3}
       propertyPath: recieveDamage
       value: 
       objectReference: {fileID: 11400000, guid: 4273b60d6c3558c45a2e90ec79b7cea4, type: 2}
     - target: {fileID: 4296755024153553401, guid: 0bb45a5882db1ce408fa4c628fcf89c3, type: 3}
+      propertyPath: updateBattleSystem
+      value: 
+      objectReference: {fileID: 11400000, guid: 744028881460599458c216269f854fa3, type: 2}
+    - target: {fileID: 4296755024153553401, guid: 0bb45a5882db1ce408fa4c628fcf89c3, type: 3}
       propertyPath: partChangedListener
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 11400000, guid: 85f0333a2ddbed14c950ca8ff93bfff7, type: 2}
     - target: {fileID: 4296755024358642213, guid: 0bb45a5882db1ce408fa4c628fcf89c3, type: 3}
       propertyPath: m_LocalPosition.x
       value: -2.69
