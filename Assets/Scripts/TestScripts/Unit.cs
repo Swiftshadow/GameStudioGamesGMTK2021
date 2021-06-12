@@ -12,7 +12,7 @@ public class Unit : MonoBehaviour
     //would it need to take in the damage int i already made?
     public void buffDamage(int dmg)
     {
-        dmg = dmg + 2;
+        dmg = dmg + 5;
     }
     public void Defend(int amount)
     {
