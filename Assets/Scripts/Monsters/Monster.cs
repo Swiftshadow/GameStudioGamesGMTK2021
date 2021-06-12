@@ -1,9 +1,9 @@
-using System;
 using System.Collections.Generic;
 using Channels;
 using UnityEngine;
+using UnityEngine.Serialization;
 
-namespace BodyParts
+namespace Monsters
 {
 
     public enum PART_LOCATIONS
@@ -38,23 +38,30 @@ namespace BodyParts
     public class Monster : MonoBehaviour
     {
         [Tooltip("Listen for a part changing")]
-        public BodyPartChannel partChangedListener;
+        [SerializeField]
+        private BodyPartChannel partChangedListener;
 
         [Tooltip("Send damage to the opponent")]
-        public IntChannel sendDamage;
+        [SerializeField]
+        private IntChannel sendDamage;
 
+        [FormerlySerializedAs("recieveDamage")]
         [Tooltip("Recieve damage from the opponent")]
-        public IntChannel recieveDamage;
+        [SerializeField]
+        private IntChannel receiveDamage;
 
         [Tooltip("Add an action to the player's queue")]
-        public MonsterActionChannel addAction;
+        [SerializeField]
+        private MonsterActionChannel addAction;
 
         [Tooltip("Do the next action in the queue")]
-        public VoidChannel doAction;
+        [SerializeField]
+        private VoidChannel doAction;
         
         [Tooltip("Triggered when monster dies")]
-        public VoidChannel onDie;
-        
+        [SerializeField]
+        private VoidChannel onDie;
+
         /// <summary>
         /// Parts currently attached to the monster.
         /// 0 is body
@@ -246,16 +253,26 @@ namespace BodyParts
             }
         }
         
-        private void RecieveDamage(int obj)
+        /// <summary>
+        /// Triggered when monster receives damage. Damage adjusted by defense, floored at 1
+        /// </summary>
+        /// <param name="obj">Amount of raw damage received</param>
+        private void ReceiveDamage(int obj)
         {
-            ChangeHealth(-obj);
+            int damage = obj - GetCurrentStats().defense;
+            if (damage < 1)
+            {
+                damage = 1;
+            }
+            
+            ChangeHealth(-damage);
         }
         
         private void OnEnable()
         {
             if (partChangedListener != null)
                 partChangedListener.OnEventRaised += PartChangedEvent;
-            recieveDamage.OnEventRaised += RecieveDamage;
+            receiveDamage.OnEventRaised += ReceiveDamage;
             addAction.OnEventRaised += AddAction;
             doAction.OnEventRaised += DoAction;
         }
@@ -264,7 +281,7 @@ namespace BodyParts
         {
             if (partChangedListener != null)
                 partChangedListener.OnEventRaised -= PartChangedEvent;
-            recieveDamage.OnEventRaised -= RecieveDamage;
+            receiveDamage.OnEventRaised -= ReceiveDamage;
             addAction.OnEventRaised -= AddAction;
             doAction.OnEventRaised -= DoAction;
         }
