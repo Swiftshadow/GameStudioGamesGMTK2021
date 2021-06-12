@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class Unit : MonoBehaviour
 {
-    public string name;
-    public int level;
+    public string unitName;
+    public string unitLevel;
     public int damage;
-    public int maxHP;
-    public int currentHP;
+    public int maxHealth;
+    public int currentHealth;
 }
