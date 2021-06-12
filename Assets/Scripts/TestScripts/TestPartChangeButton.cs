@@ -13,7 +13,7 @@ namespace TestScripts
         public void ChangePart()
         {
             BodyPartChangeEvent changedEvent = new BodyPartChangeEvent();
-            changedEvent.location = PART_LOCATIONS.CHEST;
+            changedEvent.location = PART_LOCATIONS.BODY;
             changedEvent.newPart = newPart;
             
             partChangedChannelEvent.RaiseEvent(changedEvent);

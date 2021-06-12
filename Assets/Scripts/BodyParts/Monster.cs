@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using Channels;
 using UnityEngine;
 
@@ -7,10 +8,7 @@ namespace BodyParts
 
     public enum PART_LOCATIONS
     {
-        HEAD,
-        CHEST,
-        LEGS,
-        FEET,
+        BODY,
         FRONT_ARM,
         BACK_ARM,
         EXTRA_1,
@@ -18,6 +16,14 @@ namespace BodyParts
         TAIL
     }
 
+    public enum MONSTER_ACTIONS
+    {
+        BASE_ATTACK,
+        SPECIAL_ATTACK,
+        DEFEND,
+        STALL
+    }
+    
     [System.Serializable]
     public struct MonsterStats
     {
@@ -25,22 +31,38 @@ namespace BodyParts
         public int attack;
         public int defense;
     }
+    
+    /// <summary>
+    /// Class for a monster. Works for both player and enemy monsters
+    /// </summary>
     public class Monster : MonoBehaviour
     {
         [Tooltip("Listen for a part changing")]
         public BodyPartChannel partChangedListener;
+
+        [Tooltip("Send damage to the opponent")]
+        public IntChannel sendDamage;
+
+        [Tooltip("Recieve damage from the opponent")]
+        public IntChannel recieveDamage;
+
+        [Tooltip("Add an action to the player's queue")]
+        public MonsterActionChannel addAction;
+
+        [Tooltip("Do the next action in the queue")]
+        public VoidChannel doAction;
+        
+        [Tooltip("Triggered when monster dies")]
+        public VoidChannel onDie;
         
         /// <summary>
         /// Parts currently attached to the monster.
-        /// 0 is head
-        /// 1 is chest
-        /// 2 is legs
-        /// 3 is feet
-        /// 4 is front arm
-        /// 5 is back arm
-        /// 6 is extra slot 1
-        /// 7 is extra slot 2
-        /// 8 is tail
+        /// 0 is body
+        /// 1 is front arm
+        /// 2 is back arm
+        /// 3 is extra slot 1
+        /// 4 is extra slot 2
+        /// 5 is tail
         /// </summary>
         [SerializeField]
         private BodyPartBaseSO[] attachedParts = new BodyPartBaseSO[7];
@@ -55,7 +77,14 @@ namespace BodyParts
         /// <summary>
         /// Modifications to the monster's stats
         /// </summary>
+        [SerializeField]
         private MonsterStats statMods = new MonsterStats();
+
+        /// <summary>
+        /// Actions the monster is going to take
+        /// </summary>
+        [SerializeField]
+        private Queue<MONSTER_ACTIONS> actions = new Queue<MONSTER_ACTIONS>();
         
         /// <summary>
         /// Gets the part at the given location
@@ -81,6 +110,10 @@ namespace BodyParts
             transform.GetChild(intLoc).GetComponent<SpriteRenderer>().sprite = part.sprite;
         }
 
+        /// <summary>
+        /// Recalculates the stats including modifiers
+        /// </summary>
+        /// <returns>Calculated stats</returns>
         private MonsterStats CalculateStats()
         {
             MonsterStats newStats = new MonsterStats();
@@ -100,35 +133,140 @@ namespace BodyParts
             return newStats;
         }
 
+        public MonsterStats GetCurrentStats()
+        {
+            MonsterStats newStats = new MonsterStats();
+            newStats.attack = stats.attack + statMods.attack;
+            newStats.defense = stats.defense + statMods.defense;
+            newStats.health = stats.health + statMods.health;
+
+            return newStats;
+        }
+        /// <summary>
+        /// Triggered when a part changes. Swaps the part and recalcualtes stats.
+        /// </summary>
+        /// <param name="obj">Part and location to insert</param>
         private void PartChangedEvent(BodyPartChangeEvent obj)
         {
             SetPart(obj.location, obj.newPart);
             stats = CalculateStats();
         }
 
+        /// <summary>
+        /// Apply a health modifier
+        /// </summary>
+        /// <param name="amount">How much to modify by</param>
         public void ChangeHealth(int amount)
         {
             statMods.health += amount;
+
+            if (stats.health - statMods.health <= 0)
+            {
+                onDie.RaiseEvent();
+            }
         }
 
+        /// <summary>
+        /// Reset health modifier
+        /// </summary>
+        public void ResetHealth()
+        {
+            statMods.health = 0;
+        }
+        
+        /// <summary>
+        /// Apply an attack modifier
+        /// </summary>
+        /// <param name="amount">How much to modify by</param>
         public void ChangeAttack(int amount)
         {
             statMods.attack += amount;
         }
 
+        /// <summary>
+        /// Reset attack modifier
+        /// </summary>
+        public void ResetAttack()
+        {
+            statMods.attack = 0;
+        }
+        
+        /// <summary>
+        /// Apply a defense modifier
+        /// </summary>
+        /// <param name="amount">How much to modify by</param>
         public void ChangeDefense(int amount)
         {
             statMods.defense += amount;
         }
+
+        /// <summary>
+        /// Reset defense modifier
+        /// </summary>
+        public void ResetDefense()
+        {
+            statMods.defense = 0;
+        }
+        
+        /// <summary>
+        /// Adds a new action to the queue
+        /// </summary>
+        /// <param name="action">Action to add</param>
+        public void AddAction(MONSTER_ACTIONS action)
+        {
+            actions.Enqueue(action);
+        }
+
+        /// <summary>
+        /// Does the given action. If harming the enemy, triggers the event
+        /// </summary>
+        public void DoAction()
+        {
+            MONSTER_ACTIONS action = actions.Dequeue();
+
+            MonsterStats currentStats = GetCurrentStats();
+            // Defines what each action does. Not good architecture, but its a gamejam
+            switch (action)
+            {
+                case MONSTER_ACTIONS.BASE_ATTACK:
+                    Debug.Log("Base Attack!");
+                    sendDamage.RaiseEvent(currentStats.attack);
+                    break;
+                case MONSTER_ACTIONS.SPECIAL_ATTACK:
+                    Debug.Log("Special Attack!");
+                    sendDamage.RaiseEvent(currentStats.attack + 5);
+                    break;
+                case MONSTER_ACTIONS.DEFEND:
+                    Debug.Log("Defend!");
+                    ChangeDefense(5);
+                    break;
+                case MONSTER_ACTIONS.STALL:
+                    Debug.Log("Stall!");
+                    break;
+            }
+        }
+        
+        private void RecieveDamage(int obj)
+        {
+            ChangeHealth(-obj);
+        }
         
         private void OnEnable()
         {
-            partChangedListener.OnEventRaised += PartChangedEvent;
+            if (partChangedListener != null)
+                partChangedListener.OnEventRaised += PartChangedEvent;
+            recieveDamage.OnEventRaised += RecieveDamage;
+            addAction.OnEventRaised += AddAction;
+            doAction.OnEventRaised += DoAction;
         }
 
         private void OnDisable()
         {
-            partChangedListener.OnEventRaised -= PartChangedEvent;
+            if (partChangedListener != null)
+                partChangedListener.OnEventRaised -= PartChangedEvent;
+            recieveDamage.OnEventRaised -= RecieveDamage;
+            addAction.OnEventRaised -= AddAction;
+            doAction.OnEventRaised -= DoAction;
         }
 
         private void Start()
