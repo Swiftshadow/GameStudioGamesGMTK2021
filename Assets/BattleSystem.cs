@@ -141,7 +141,7 @@ public class BattleSystem : MonoBehaviour
     }
     //Adding this for posterity-the monster's second attack, right now, functions the same as the other one
     //Hence the coroutine going to the same MonsterAttack function
-    public void OnAltAttackButton()
+    public void OnAltAttackButton()//need new coroutine for alt attack, and prolly a new function in Unit
     {
         if (currState != BattleState.MONSTERTURN)
         {
