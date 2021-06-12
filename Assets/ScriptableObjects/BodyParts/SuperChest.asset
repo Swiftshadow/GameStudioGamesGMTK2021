@@ -10,9 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4158b3943b90bf64abe8fbc2357ca8e2, type: 3}
-  m_Name: DefaultRightArm
+  m_Name: SuperChest
   m_EditorClassIdentifier: 
-  baseHealth: 10
-  baseAttack: 1
-  baseDefense: 1
-  baseDurability: 10
+  baseHealth: 20
+  baseAttack: 2
+  baseDefense: 2
+  baseDurability: 20
+  sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}

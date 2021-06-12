@@ -8,11 +8,13 @@ namespace BodyParts
     public enum PART_LOCATIONS
     {
         HEAD,
-        TORSO,
-        L_ARM,
-        R_ARM,
-        L_LEG,
-        R_LEG,
+        CHEST,
+        LEGS,
+        FEET,
+        FRONT_ARM,
+        BACK_ARM,
+        EXTRA_1,
+        EXTRA_2,
         TAIL
     }
 
@@ -31,12 +33,14 @@ namespace BodyParts
         /// <summary>
         /// Parts currently attached to the monster.
         /// 0 is head
-        /// 1 is torso
-        /// 2 is left arm
-        /// 3 is right arm
-        /// 4 is left leg
-        /// 5 is right leg
-        /// 6 is tail
+        /// 1 is chest
+        /// 2 is legs
+        /// 3 is feet
+        /// 4 is front arm
+        /// 5 is back arm
+        /// 6 is extra slot 1
+        /// 7 is extra slot 2
+        /// 8 is tail
         /// </summary>
         [SerializeField]
         private BodyPartBaseSO[] attachedParts = new BodyPartBaseSO[7];
@@ -45,6 +49,7 @@ namespace BodyParts
         /// Monster's base stats
         /// </summary>
         /// <returns></returns>
+        [SerializeField]
         private MonsterStats stats = new MonsterStats();
 
         /// <summary>
