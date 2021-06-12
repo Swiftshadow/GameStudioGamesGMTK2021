@@ -14,6 +14,10 @@ public class Unit : MonoBehaviour
     {
         dmg = dmg + 2;
     }
+    public void Defend(int amount)
+    {
+        damage -= amount;//unsure about this
+    }
     //public void buffDefense
     public bool TakeDamage(int dmg)
     {

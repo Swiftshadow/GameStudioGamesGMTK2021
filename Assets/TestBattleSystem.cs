@@ -57,29 +57,13 @@ public class TestBattleSystem : MonoBehaviour
         PlayerTurn();
     }
 
-    IEnumerator PlayerAttack()
-    {
-        bool isDead = enemyUnit.TakeDamage(playerUnit.damage);
-        enemyHUD.setHealth(enemyUnit.currentHealth);
-        dialogueText.text = "Success";
-        yield return new WaitForSeconds(2f);
-        if(isDead)
-        {
-            currState = BattleState.WON;
-            EndBattle();
-        }
-        else
-        {
-            currState = BattleState.ENEMYTURN;
-            StartCoroutine(EnemyTurn());
-        }
-    }
+   
     IEnumerator EnemyTurn()
     {
         dialogueText.text = enemyUnit.unitName + " attacks";
         yield return new WaitForSeconds(1f);
-        bool isDead = playerUnit.TakeDamage(enemyUnit.damage);
-        playerHUD.setHealth(playerUnit.currentHP);
+        bool isDead = enemyUnit.TakeDamage(enemyUnit.damage);
+        enemyHUD.setHealth(enemyUnit.currentHP);
         yield return new WaitForSeconds(1f);
         if (isDead)
         {
@@ -107,7 +91,24 @@ public class TestBattleSystem : MonoBehaviour
     {
         dialogueText.text = "Make your choice: ";
     }
-    
+    IEnumerator PlayerAttack()
+    {
+        bool isDead = enemyUnit.TakeDamage(monsterUnit.damage);
+        enemyHUD.setHealth(enemyUnit.currentHealth);
+        dialogueText.text = "Success";
+        yield return new WaitForSeconds(2f);
+        if (isDead)
+        {
+            currState = BattleState.WON;
+            EndBattle();
+        }
+        else
+        {
+            currState = BattleState.ENEMYTURN;
+            StartCoroutine(EnemyTurn());
+        }
+    }
+
     public void OnAttackButton()
     {
         if(currState != BattleState.PLAYERTURN)
@@ -115,5 +116,21 @@ public class TestBattleSystem : MonoBehaviour
             return;
         }
         StartCoroutine(PlayerAttack());
+    }
+    IEnumerator PlayerDefend()
+    {
+        playerUnit.Defend(5);
+        //do i need something with the HUD here?
+        yield return new WaitForSeconds(2f);
+        currState = BattleState.ENEMYTURN;
+        StartCoroutine(EnemyTurn());
+    }
+    public void OnDefendButton()
+    {
+        if (currState != BattleState.PLAYERTURN)
+        {
+            return;
+        }
+        StartCoroutine(PlayerDefend());
     }
 }
