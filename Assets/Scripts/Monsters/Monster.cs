@@ -80,6 +80,9 @@ namespace Monsters
         private VoidChannel resetDefense;
 
         [SerializeField]
+        private VoidChannel resetHealth;
+        
+        [SerializeField]
         private MonsterStatsChannel updateBattleSystem;
 
         [SerializeField]
@@ -159,6 +162,9 @@ namespace Monsters
             newStats.attack += statMods.attack;
             newStats.defense += statMods.defense;
             newStats.health += statMods.health;
+            newStats.name = statMods.name;
+            newStats.level = statMods.level;
+            
             
             return newStats;
         }
@@ -166,6 +172,8 @@ namespace Monsters
         public MonsterStats GetCurrentStats()
         {
             MonsterStats newStats = new MonsterStats();
+            newStats.name = stats.name;
+            newStats.level = stats.level;
             newStats.attack = stats.attack + statMods.attack;
             newStats.defense = stats.defense + statMods.defense;
             newStats.health = stats.health + statMods.health;
@@ -190,7 +198,7 @@ namespace Monsters
         {
             statMods.health += amount;
 
-            if (stats.health - statMods.health <= 0)
+            if (stats.health + statMods.health <= 0)
             {
                 onDie.RaiseEvent();
             }
@@ -283,9 +291,9 @@ namespace Monsters
         private void ReceiveDamage(int obj)
         {
             int damage = obj - GetCurrentStats().defense;
-            if (damage < 1)
+            if (damage < 0)
             {
-                damage = 1;
+                damage = 0;
             }
             
             ChangeHealth(-damage);
@@ -304,6 +312,7 @@ namespace Monsters
             modifyDefense.OnEventRaised += ChangeDefense;
             resetAttack.OnEventRaised += ResetAttack;
             resetDefense.OnEventRaised += ResetDefense;
+            resetHealth.OnEventRaised += ResetHealth;
             requestStats.OnEventRaised += RequestStats;
         }
 
@@ -318,6 +327,7 @@ namespace Monsters
             modifyDefense.OnEventRaised -= ChangeDefense;
             resetAttack.OnEventRaised -= ResetAttack;
             resetDefense.OnEventRaised -= ResetDefense;
+            resetDefense.OnEventRaised -= ResetHealth;
             requestStats.OnEventRaised -= RequestStats;
         }
 

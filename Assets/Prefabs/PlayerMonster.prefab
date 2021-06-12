@@ -88,6 +88,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 2bd27f7d3bae1b34ea7ba48938bb0cfe, type: 2}
     - target: {fileID: 4296755024153553401, guid: 0bb45a5882db1ce408fa4c628fcf89c3, type: 3}
+      propertyPath: resetHealth
+      value: 
+      objectReference: {fileID: 11400000, guid: 656f9cb077ff62943926d475510f6dd6, type: 2}
+    - target: {fileID: 4296755024153553401, guid: 0bb45a5882db1ce408fa4c628fcf89c3, type: 3}
       propertyPath: modifyAttack
       value: 
       objectReference: {fileID: 11400000, guid: ea1e1ebd8ba24f7468ee3c9cdad33c9c, type: 2}
@@ -111,6 +115,10 @@ PrefabInstance:
       propertyPath: recieveDamage
       value: 
       objectReference: {fileID: 11400000, guid: 7836bf7e78e14a34c9ada35fb8cc0ab4, type: 2}
+    - target: {fileID: 4296755024153553401, guid: 0bb45a5882db1ce408fa4c628fcf89c3, type: 3}
+      propertyPath: statMods.name
+      value: Player Monster
+      objectReference: {fileID: 0}
     - target: {fileID: 4296755024153553401, guid: 0bb45a5882db1ce408fa4c628fcf89c3, type: 3}
       propertyPath: updateBattleSystem
       value: 

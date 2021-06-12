@@ -103,6 +103,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 3d1ae8a33663c1640bc08778e5e5f040, type: 2}
     - target: {fileID: 4296755024153553401, guid: 0bb45a5882db1ce408fa4c628fcf89c3, type: 3}
+      propertyPath: resetHealth
+      value: 
+      objectReference: {fileID: 11400000, guid: 4885e742f012a8d4fa6dd3f24b721603, type: 2}
+    - target: {fileID: 4296755024153553401, guid: 0bb45a5882db1ce408fa4c628fcf89c3, type: 3}
       propertyPath: modifyAttack
       value: 
       objectReference: {fileID: 11400000, guid: 3ae81a7c732a7344b824a3ae12412d38, type: 2}
@@ -126,6 +130,10 @@ PrefabInstance:
       propertyPath: recieveDamage
       value: 
       objectReference: {fileID: 11400000, guid: 4273b60d6c3558c45a2e90ec79b7cea4, type: 2}
+    - target: {fileID: 4296755024153553401, guid: 0bb45a5882db1ce408fa4c628fcf89c3, type: 3}
+      propertyPath: statMods.name
+      value: Buff Spider
+      objectReference: {fileID: 0}
     - target: {fileID: 4296755024153553401, guid: 0bb45a5882db1ce408fa4c628fcf89c3, type: 3}
       propertyPath: updateBattleSystem
       value: 

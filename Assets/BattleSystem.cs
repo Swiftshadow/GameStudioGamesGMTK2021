@@ -30,11 +30,17 @@ public class BattleSystem : MonoBehaviour
     private VoidChannel onPlayerDie;
     [SerializeField]
     private VoidChannel onEnemyDie;
-
+    
     [SerializeField] private MonsterStatsChannel onPlayerStatsUpdated;
     [SerializeField] private MonsterStatsChannel onEnemyStatsUpdated;
     [SerializeField] private VoidChannel requestPlayerStats;
     [SerializeField] private VoidChannel requestEnemyStats;
+    [SerializeField] private VoidChannel resetPlayerAttack;
+    [SerializeField] private VoidChannel resetPlayerDefense;
+    [SerializeField] private VoidChannel resetPlayerHealth;
+    [SerializeField] private VoidChannel resetEnemyAttack;
+    [SerializeField] private VoidChannel resetEnemyDefense;
+    [SerializeField] private VoidChannel resetEnemyHealth;
 
     private MonsterStats playerStats;
     private MonsterStats enemyStats;
@@ -71,7 +77,6 @@ public class BattleSystem : MonoBehaviour
         scientistUnit = scientist.GetComponent<Unit>();
        */
         //Display enemy name
-        // TODO: Modify to actually work
         requestPlayerStats.RaiseEvent();
         requestEnemyStats.RaiseEvent();
         yield return new WaitForEndOfFrame();
@@ -92,6 +97,8 @@ public class BattleSystem : MonoBehaviour
     //Display the text. Don't forget to add the buttons to actually, yknow, do stuff
     void ScientistTurn()
     {
+        resetPlayerAttack.RaiseEvent();
+        resetPlayerDefense.RaiseEvent();
         dialogueText.text = "Make your choice: ";//attack button and defend button go next to this
     }
 
@@ -123,6 +130,7 @@ public class BattleSystem : MonoBehaviour
         queuePlayerAction.RaiseEvent(MONSTER_ACTIONS.BUFF_ATTACK);
         dialogueText.text = "Your creature grows stronger";
         yield return new WaitForSeconds(2f);
+        dialogueText.text = "Select your monster's move";
         currState = BattleState.MONSTERTURN;
     }
     //Buffs the monster's defense by referencing the proper function in the Unit script
@@ -133,6 +141,7 @@ public class BattleSystem : MonoBehaviour
         queuePlayerAction.RaiseEvent(MONSTER_ACTIONS.BUFF_DEFENSE);
         dialogueText.text = "Your creature beefs up";
         yield return new WaitForSeconds(2f);
+        dialogueText.text = "Select your monster's move";
         currState = BattleState.MONSTERTURN;
     }
 
@@ -189,16 +198,21 @@ public class BattleSystem : MonoBehaviour
         currState = BattleState.SCIENTISTTURN;
         ScientistTurn();
     }
+    
     //This ends the battle and displays text appropriate to the outcome
     void EndBattle()
     {
         StopAllCoroutines();
+        ResetStats();
+        Debug.Log("Setting dialogue text");
         if (currState == BattleState.WON)
         {
+            Debug.Log("Player won!");
             dialogueText.text = "Monster slain";
         }
         else if (currState == BattleState.LOST)
         {
+            Debug.Log("Enemy won!");
             dialogueText.text = "You were defeated";
         }
     }
@@ -241,6 +255,16 @@ public class BattleSystem : MonoBehaviour
     {
         currState = BattleState.LOST;
         EndBattle();
+    }
+
+    public void ResetStats()
+    {
+        resetEnemyAttack.RaiseEvent();
+        resetEnemyDefense.RaiseEvent();
+        resetEnemyHealth.RaiseEvent();
+        resetPlayerAttack.RaiseEvent();
+        resetPlayerDefense.RaiseEvent();
+        resetPlayerHealth.RaiseEvent();
     }
     
 }
