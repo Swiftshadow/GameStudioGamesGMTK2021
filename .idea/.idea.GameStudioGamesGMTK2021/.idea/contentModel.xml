@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ContentModelStore">
+    <e p="C:\Users\swift\AppData\Local\JetBrains\Rider2020.2\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\swift\AppData\Local\JetBrains\Rider2020.2\resharper-host\Local\Transient\Rider\v202\SolutionCaches\_GameStudioGamesGMTK2021.1206276001.00" t="ExcludeRecursive" />
+    <e p="C:\Users\swift\Documents\Bradley\Summer 2021\GameStudioGamesGMTK2021" t="IncludeRecursive">
+      <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
+      <e p="Assets" t="Include">
+        <e p="BattleSystem.cs" t="Include" />
+        <e p="ConsolePro" t="Include">
+          <e p="ConsoleProDebug.asmdef" t="Include" />
+          <e p="ConsoleProDebug.cs" t="Include" />
+          <e p="Editor" t="Include">
+            <e p="ConsoleProEditor.asmdef" t="Include" />
+          </e>
+          <e p="Remote" t="Include">
+            <e p="ConsoleProRemote.asmdef" t="Include" />
+            <e p="ConsoleProRemoteServer.cs" t="Include" />
+            <e p="LiteNetLib" t="Include">
+              <e p="FastBitConverter.cs" t="Include" />
+              <e p="INetEventListener.cs" t="Include" />
+              <e p="NatPunchModule.cs" t="Include" />
+              <e p="NetConstants.cs" t="Include" />
+              <e p="NetDataReader.cs" t="Include" />
+              <e p="NetDataWriter.cs" t="Include" />
+              <e p="NetDebug.cs" t="Include" />
+              <e p="NetEndPoint.cs" t="Include" />
+              <e p="NetManager.cs" t="Include" />
+              <e p="NetPacket.cs" t="Include" />
+              <e p="NetPacketPool.cs" t="Include" />
+              <e p="NetPeer.cs" t="Include" />
+              <e p="NetPeerCollection.cs" t="Include" />
+              <e p="NetSerializer.cs" t="Include" />
+              <e p="NetSocket.cs" t="Include" />
+              <e p="NetThread.cs" t="Include" />
+              <e p="NetUtils.cs" t="Include" />
+              <e p="NtpSyncModule.cs" t="Include" />
+              <e p="ReliableChannel.cs" t="Include" />
+              <e p="SequencedChannel.cs" t="Include" />
+              <e p="SimpleChannel.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+        <e p="QHierarchy" t="Include">
+          <e p="Attribute" t="Include">
+            <e p="QHierarchyNullable.asmdef" t="Include" />
+            <e p="QHierarchyNullable.cs" t="Include" />
+          </e>
+          <e p="Editor" t="Include">
+            <e p="QHierarchyEditor.asmdef" t="Include" />
+            <e p="Scripts" t="Include">
+              <e p="pcomponent" t="Include">
+                <e p="pbase" t="Include">
+                  <e p="QBaseComponent.cs" t="Include" />
+                </e>
+                <e p="QChildrenCountComponent.cs" t="Include" />
+                <e p="QColorComponent.cs" t="Include" />
+                <e p="QComponentsComponent.cs" t="Include" />
+                <e p="QErrorComponent.cs" t="Include" />
+                <e p="QGameObjectIconComponent.cs" t="Include" />
+                <e p="QLayerIconComponent.cs" t="Include" />
+                <e p="QLockComponent.cs" t="Include" />
+                <e p="QMonoBehaviorIconComponent.cs" t="Include" />
+                <e p="QPrefabComponent.cs" t="Include" />
+                <e p="QRendererComponent.cs" t="Include" />
+                <e p="QSeparatorComponent.cs" t="Include" />
+                <e p="QStaticComponent.cs" t="Include" />
+                <e p="QTagIconComponent.cs" t="Include" />
+                <e p="QTagLayerComponent.cs" t="Include" />
+                <e p="QTreeMapComponent.cs" t="Include" />
+                <e p="QVerticesAndTrianglesCountComponent.cs" t="Include" />
+                <e p="QVisibilityComponent.cs" t="Include" />
+              </e>
+              <e p="pdata" t="Include">
+                <e p="QResources.cs" t="Include" />
+                <e p="QSettings.cs" t="Include" />
+                <e p="QSettingsObject.cs" t="Include" />
+              </e>
+              <e p="phelper" t="Include">
+                <e p="QColorPickerWindow.cs" t="Include" />
+                <e p="QColorUtils.cs" t="Include" />
+                <e p="QComponentsOrderList.cs" t="Include" />
+                <e p="QObjectListInspector.cs" t="Include" />
+                <e p="QObjectListManager.cs" t="Include" />
+              </e>
+              <e p="phierarchy" t="Include">
+                <e p="QHierarchy.cs" t="Include" />
+                <e p="QHierarchySettingsWindow.cs" t="Include" />
+              </e>
+              <e p="QHierarchyInitializer.cs" t="Include" />
+            </e>
+          </e>
+          <e p="Scripts" t="Include">
+            <e p="QHierarchyRuntime.asmdef" t="Include" />
+            <e p="QObjectList.cs" t="Include" />
+          </e>
+        </e>
+        <e p="Scripts" t="Include">
+          <e p="BattleHUD.cs" t="Include" />
+          <e p="BodyParts" t="Include">
+            <e p="BodyPartBaseSO.cs" t="Include" />
+            <e p="MonsterPartEditor.cs" t="Include" />
+            <e p="PartsInventory.cs" t="Include" />
+          </e>
+          <e p="Channels" t="Include">
+            <e p="BaseChannel.cs" t="Include" />
+            <e p="BodyPartChannel.cs" t="Include" />
+            <e p="IntChannel.cs" t="Include" />
+            <e p="MonsterActionChannel.cs" t="Include" />
+            <e p="MonsterActionQueueChannel.cs" t="Include" />
+            <e p="MonsterStatsChannel.cs" t="Include" />
+            <e p="VoidChannel.cs" t="Include" />
+          </e>
+          <e p="Monsters" t="Include">
+            <e p="EnemyMonsterBehaviour.cs" t="Include" />
+            <e p="Monster.cs" t="Include" />
+          </e>
+          <e p="TestScripts" t="Include">
+            <e p="TestActionDoScript.cs" t="Include" />
+            <e p="TestActionQueueScript.cs" t="Include" />
+            <e p="TestPartChangeButton.cs" t="Include" />
+            <e p="Unit.cs" t="Include" />
+          </e>
+          <e p="UI" t="Include">
+            <e p="MainMenuBehaviour.cs" t="Include" />
+            <e p="MainMenuScript.cs" t="Include" />
+          </e>
+        </e>
+        <e p="TextMesh Pro" t="Include">
+          <e p="Examples &amp; Extras" t="Include">
+            <e p="Fonts" t="Include">
+              <e p="Anton OFL.txt" t="Include" />
+              <e p="Bangers - OFL.txt" t="Include" />
+              <e p="Oswald-Bold - OFL.txt" t="Include" />
+            </e>
+            <e p="Scripts" t="Include">
+              <e p="Benchmark01.cs" t="Include" />
+              <e p="Benchmark01_UGUI.cs" t="Include" />
+              <e p="Benchmark02.cs" t="Include" />
+              <e p="Benchmark03.cs" t="Include" />
+              <e p="Benchmark04.cs" t="Include" />
+              <e p="CameraController.cs" t="Include" />
+              <e p="ChatController.cs" t="Include" />
+              <e p="DropdownSample.cs" t="Include" />
+              <e p="EnvMapAnimator.cs" t="Include" />
+              <e p="ObjectSpin.cs" t="Include" />
+              <e p="ShaderPropAnimator.cs" t="Include" />
+              <e p="SimpleScript.cs" t="Include" />
+              <e p="SkewTextExample.cs" t="Include" />
+              <e p="TeleType.cs" t="Include" />
+              <e p="TextConsoleSimulator.cs" t="Include" />
+              <e p="TextMeshProFloatingText.cs" t="Include" />
+              <e p="TextMeshSpawner.cs" t="Include" />
+              <e p="TMP_DigitValidator.cs" t="Include" />
+              <e p="TMP_ExampleScript_01.cs" t="Include" />
+              <e p="TMP_FrameRateCounter.cs" t="Include" />
+              <e p="TMP_PhoneNumberValidator.cs" t="Include" />
+              <e p="TMP_TextEventCheck.cs" t="Include" />
+              <e p="TMP_TextEventHandler.cs" t="Include" />
+              <e p="TMP_TextInfoDebugTool.cs" t="Include" />
+              <e p="TMP_TextSelector_A.cs" t="Include" />
+              <e p="TMP_TextSelector_B.cs" t="Include" />
+              <e p="TMP_UiFrameRateCounter.cs" t="Include" />
+              <e p="TMPro_InstructionOverlay.cs" t="Include" />
+              <e p="VertexColorCycler.cs" t="Include" />
+              <e p="VertexJitter.cs" t="Include" />
+              <e p="VertexShakeA.cs" t="Include" />
+              <e p="VertexShakeB.cs" t="Include" />
+              <e p="VertexZoom.cs" t="Include" />
+              <e p="WarpTextExample.cs" t="Include" />
+            </e>
+          </e>
+          <e p="Fonts" t="Include">
+            <e p="LiberationSans - OFL.txt" t="Include" />
+          </e>
+          <e p="Resources" t="Include">
+            <e p="LineBreaking Following Characters.txt" t="Include" />
+            <e p="LineBreaking Leading Characters.txt" t="Include" />
+          </e>
+          <e p="Shaders" t="Include">
+            <e p="TMP_Bitmap-Custom-Atlas.shader" t="Include" />
+            <e p="TMP_Bitmap-Mobile.shader" t="Include" />
+            <e p="TMP_Bitmap.shader" t="Include" />
+            <e p="TMP_SDF Overlay.shader" t="Include" />
+            <e p="TMP_SDF SSD.shader" t="Include" />
+            <e p="TMP_SDF-Mobile Masking.shader" t="Include" />
+            <e p="TMP_SDF-Mobile Overlay.shader" t="Include" />
+            <e p="TMP_SDF-Mobile SSD.shader" t="Include" />
+            <e p="TMP_SDF-Mobile.shader" t="Include" />
+            <e p="TMP_SDF-Surface-Mobile.shader" t="Include" />
+            <e p="TMP_SDF-Surface.shader" t="Include" />
+            <e p="TMP_SDF.shader" t="Include" />
+            <e p="TMP_Sprite.shader" t="Include" />
+            <e p="TMPro.cginc" t="Include" />
+            <e p="TMPro_Mobile.cginc" t="Include" />
+            <e p="TMPro_Properties.cginc" t="Include" />
+            <e p="TMPro_Surface.cginc" t="Include" />
+          </e>
+          <e p="Sprites" t="Include">
+            <e p="EmojiOne Attribution.txt" t="Include" />
+            <e p="EmojiOne.json" t="Include" />
+          </e>
+        </e>
+      </e>
+      <e p="ConsoleProDebug.csproj" t="IncludeRecursive" />
+      <e p="ConsoleProEditor.csproj" t="IncludeRecursive" />
+      <e p="ConsoleProRemote.csproj" t="IncludeRecursive" />
+      <e p="GameStudioGamesGMTK2021.sln" t="IncludeFlat" />
+      <e p="obj" t="ExcludeRecursive" />
+      <e p="Packages" t="ExcludeRecursive" />
+      <e p="QHierarchyEditor.csproj" t="IncludeRecursive" />
+      <e p="QHierarchyNullable.csproj" t="IncludeRecursive" />
+      <e p="QHierarchyRuntime.csproj" t="IncludeRecursive" />
+      <e p="Temp\Bin" t="ExcludeRecursive" />
+    </e>
+  </component>
+</project>

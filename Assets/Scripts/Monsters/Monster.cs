@@ -21,12 +21,16 @@ namespace Monsters
         BASE_ATTACK,
         SPECIAL_ATTACK,
         DEFEND,
+        BUFF_ATTACK,
+        BUFF_DEFENSE,
         STALL
     }
     
     [System.Serializable]
     public struct MonsterStats
     {
+        public string name;
+        public int level;
         public int health;
         public int attack;
         public int defense;
@@ -35,7 +39,8 @@ namespace Monsters
     /// <summary>
     /// Class for a monster. Works for both player and enemy monsters
     /// </summary>
-    public class Monster : MonoBehaviour
+    public class 
+        Monster : MonoBehaviour
     {
         [Tooltip("Listen for a part changing")]
         [SerializeField]
@@ -62,6 +67,24 @@ namespace Monsters
         [SerializeField]
         private VoidChannel onDie;
 
+        [SerializeField]
+        private IntChannel modifyAttack;
+
+        [SerializeField]
+        private IntChannel modifyDefense;
+
+        [SerializeField]
+        private VoidChannel resetAttack;
+
+        [SerializeField]
+        private VoidChannel resetDefense;
+
+        [SerializeField]
+        private MonsterStatsChannel updateBattleSystem;
+
+        [SerializeField]
+        private VoidChannel requestStats;
+        
         /// <summary>
         /// Parts currently attached to the monster.
         /// 0 is body
@@ -266,6 +289,8 @@ namespace Monsters
             }
             
             ChangeHealth(-damage);
+            MonsterStats newStats = GetCurrentStats();
+            updateBattleSystem.RaiseEvent(newStats);
         }
         
         private void OnEnable()
@@ -275,6 +300,11 @@ namespace Monsters
             receiveDamage.OnEventRaised += ReceiveDamage;
             addAction.OnEventRaised += AddAction;
             doAction.OnEventRaised += DoAction;
+            modifyAttack.OnEventRaised += ChangeAttack;
+            modifyDefense.OnEventRaised += ChangeDefense;
+            resetAttack.OnEventRaised += ResetAttack;
+            resetDefense.OnEventRaised += ResetDefense;
+            requestStats.OnEventRaised += RequestStats;
         }
 
         private void OnDisable()
@@ -284,6 +314,16 @@ namespace Monsters
             receiveDamage.OnEventRaised -= ReceiveDamage;
             addAction.OnEventRaised -= AddAction;
             doAction.OnEventRaised -= DoAction;
+            modifyAttack.OnEventRaised -= ChangeAttack;
+            modifyDefense.OnEventRaised -= ChangeDefense;
+            resetAttack.OnEventRaised -= ResetAttack;
+            resetDefense.OnEventRaised -= ResetDefense;
+            requestStats.OnEventRaised -= RequestStats;
+        }
+
+        private void RequestStats()
+        {
+            updateBattleSystem.RaiseEvent(GetCurrentStats());
         }
 
         private void Start()

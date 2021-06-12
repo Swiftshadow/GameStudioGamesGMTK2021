@@ -80,9 +80,41 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 4273b60d6c3558c45a2e90ec79b7cea4, type: 2}
     - target: {fileID: 4296755024153553401, guid: 0bb45a5882db1ce408fa4c628fcf89c3, type: 3}
+      propertyPath: stats.name
+      value: Player Monster
+      objectReference: {fileID: 0}
+    - target: {fileID: 4296755024153553401, guid: 0bb45a5882db1ce408fa4c628fcf89c3, type: 3}
+      propertyPath: resetAttack
+      value: 
+      objectReference: {fileID: 11400000, guid: 2bd27f7d3bae1b34ea7ba48938bb0cfe, type: 2}
+    - target: {fileID: 4296755024153553401, guid: 0bb45a5882db1ce408fa4c628fcf89c3, type: 3}
+      propertyPath: modifyAttack
+      value: 
+      objectReference: {fileID: 11400000, guid: ea1e1ebd8ba24f7468ee3c9cdad33c9c, type: 2}
+    - target: {fileID: 4296755024153553401, guid: 0bb45a5882db1ce408fa4c628fcf89c3, type: 3}
+      propertyPath: requestStats
+      value: 
+      objectReference: {fileID: 11400000, guid: 33bdcc49362f67743965d0c85f7ceb03, type: 2}
+    - target: {fileID: 4296755024153553401, guid: 0bb45a5882db1ce408fa4c628fcf89c3, type: 3}
+      propertyPath: resetDefense
+      value: 
+      objectReference: {fileID: 11400000, guid: 689c175f0dfb2f64197afba572bb3200, type: 2}
+    - target: {fileID: 4296755024153553401, guid: 0bb45a5882db1ce408fa4c628fcf89c3, type: 3}
+      propertyPath: modifyDefense
+      value: 
+      objectReference: {fileID: 11400000, guid: ee846adeed04484498d359b5278016be, type: 2}
+    - target: {fileID: 4296755024153553401, guid: 0bb45a5882db1ce408fa4c628fcf89c3, type: 3}
+      propertyPath: receiveDamage
+      value: 
+      objectReference: {fileID: 11400000, guid: 7836bf7e78e14a34c9ada35fb8cc0ab4, type: 2}
+    - target: {fileID: 4296755024153553401, guid: 0bb45a5882db1ce408fa4c628fcf89c3, type: 3}
       propertyPath: recieveDamage
       value: 
       objectReference: {fileID: 11400000, guid: 7836bf7e78e14a34c9ada35fb8cc0ab4, type: 2}
+    - target: {fileID: 4296755024153553401, guid: 0bb45a5882db1ce408fa4c628fcf89c3, type: 3}
+      propertyPath: updateBattleSystem
+      value: 
+      objectReference: {fileID: 11400000, guid: 765dd2bc9a2f7be4ba53ea959e29c25f, type: 2}
     - target: {fileID: 4296755024153553401, guid: 0bb45a5882db1ce408fa4c628fcf89c3, type: 3}
       propertyPath: partChangedListener
       value: 

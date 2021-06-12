@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Monsters;
 using UnityEngine;
 using UnityEngine.UI;
 public class BattleHUD : MonoBehaviour
@@ -8,12 +9,12 @@ public class BattleHUD : MonoBehaviour
     public Text levelText;
     public Slider hpSlider;
 
-    public void setHUD(Unit unit)
+    public void setHUD(MonsterStats stats)
     {
-        nameText.text = unit.unitName;
-        levelText.text = "Lvl " + unit.unitLevel;
-        hpSlider.maxValue = unit.maxHealth;
-        hpSlider.value = unit.currentHealth;
+        nameText.text = stats.name;
+        levelText.text = "Lvl " + stats.level;
+        hpSlider.maxValue = stats.health;
+        hpSlider.value = stats.health;
     }
 
     public void setHealth(int health)

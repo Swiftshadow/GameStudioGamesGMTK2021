@@ -1,5 +1,8 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using Channels;
+using Monsters;
 using UnityEngine;
 using UnityEngine.UI;
 public enum BattleState { START, SCIENTISTTURN, MONSTERTURN, ENEMYTURN, WON, LOST }
@@ -17,10 +20,25 @@ public class BattleSystem : MonoBehaviour
     public Transform scientistPos;
    
     //absolute Units! These refer to the 3 actors in the scene
-    Unit monsterUnit;
-    Unit enemyUnit;
-    Unit scientistUnit;
+    [SerializeField]
+    private VoidChannel doPlayerAction;
+    [SerializeField]
+    private VoidChannel doEnemyAction;
+    [SerializeField]
+    private MonsterActionChannel queuePlayerAction;
+    [SerializeField]
+    private VoidChannel onPlayerDie;
+    [SerializeField]
+    private VoidChannel onEnemyDie;
 
+    [SerializeField] private MonsterStatsChannel onPlayerStatsUpdated;
+    [SerializeField] private MonsterStatsChannel onEnemyStatsUpdated;
+    [SerializeField] private VoidChannel requestPlayerStats;
+    [SerializeField] private VoidChannel requestEnemyStats;
+
+    private MonsterStats playerStats;
+    private MonsterStats enemyStats;
+    
     //The heads-up display objects for the 3 actors
     public BattleHUD monsterHUD;
     public BattleHUD enemyHUD;
@@ -42,6 +60,7 @@ public class BattleSystem : MonoBehaviour
     IEnumerator BeginBattle()
     {
         //make GO's of the 3 lads and save em in variables for later reference
+        /*
         GameObject monster = Instantiate(monsterPrefab, monsterPos);
         monsterUnit = monster.GetComponent<Unit>();
 
@@ -50,14 +69,19 @@ public class BattleSystem : MonoBehaviour
 
         GameObject scientist = Instantiate(scientistPrefab, scientistPos);
         scientistUnit = scientist.GetComponent<Unit>();
-       
+       */
         //Display enemy name
-        dialogueText.text = "A fearsome " + enemyUnit.unitName + " approaches!";
+        // TODO: Modify to actually work
+        requestPlayerStats.RaiseEvent();
+        requestEnemyStats.RaiseEvent();
+        yield return new WaitForEndOfFrame();
+        dialogueText.text = "A fearsome " + enemyStats.name + " approaches!";
 
         //set up HUD for all 3
-        monsterHUD.setHUD(monsterUnit);
-        enemyHUD.setHUD(enemyUnit);
-        scientistHUD.setHUD(scientistUnit);
+        // TODO: Update setHUD
+        monsterHUD.setHUD(playerStats);
+        enemyHUD.setHUD(enemyStats);
+        //scientistHUD.setHUD(scientistUnit);
         yield return new WaitForSeconds(2f);
 
         //progress to the scientist's turn
@@ -95,7 +119,8 @@ public class BattleSystem : MonoBehaviour
     //Then progresses to the monster's turn
     IEnumerator MonsterAttackBuff()
     {
-        monsterUnit.buffDamage(monsterUnit.damage);
+        //monsterUnit.buffDamage(monsterUnit.damage);
+        queuePlayerAction.RaiseEvent(MONSTER_ACTIONS.BUFF_ATTACK);
         dialogueText.text = "Your creature grows stronger";
         yield return new WaitForSeconds(2f);
         currState = BattleState.MONSTERTURN;
@@ -104,7 +129,8 @@ public class BattleSystem : MonoBehaviour
     //Then progresses to the monster's turn
     IEnumerator MonsterDefenseBuff()
     {
-        monsterUnit.Defend(enemyUnit.damage);//?
+        //monsterUnit.Defend(enemyUnit.damage);//?
+        queuePlayerAction.RaiseEvent(MONSTER_ACTIONS.BUFF_DEFENSE);
         dialogueText.text = "Your creature beefs up";
         yield return new WaitForSeconds(2f);
         currState = BattleState.MONSTERTURN;
@@ -124,20 +150,14 @@ public class BattleSystem : MonoBehaviour
     //Then checks if the enemy's dead-if so, end the round, if not, progress to enemy's turn
     IEnumerator MonsterAttack()
     {
-        bool isDead = enemyUnit.TakeDamage(monsterUnit.damage);
-        enemyHUD.setHealth(enemyUnit.currentHealth);
+        //bool isDead = enemyUnit.TakeDamage(monsterUnit.damage);
+        queuePlayerAction.RaiseEvent(MONSTER_ACTIONS.BASE_ATTACK);
+        doPlayerAction.RaiseEvent();
+        doPlayerAction.RaiseEvent();
         dialogueText.text = "Success";
         yield return new WaitForSeconds(2f);
-        if (isDead)
-        {
-            currState = BattleState.WON;
-            EndBattle();
-        }
-        else
-        {
-            currState = BattleState.ENEMYTURN;
-            StartCoroutine(EnemyTurn());
-        }
+        currState = BattleState.ENEMYTURN;
+        StartCoroutine(EnemyTurn());
     }
     //Adding this for posterity-the monster's second attack, right now, functions the same as the other one
     //Hence the coroutine going to the same MonsterAttack function
@@ -163,25 +183,16 @@ public class BattleSystem : MonoBehaviour
     //if not, progress back to the scientist's turn and start over
     IEnumerator EnemyTurn()
     {
-        dialogueText.text = enemyUnit.unitName + " attacks";
+        doEnemyAction.RaiseEvent();
+        dialogueText.text = enemyStats.name + " attacks";
         yield return new WaitForSeconds(1f);
-        bool isDead = enemyUnit.TakeDamage(enemyUnit.damage);
-        enemyHUD.setHealth(enemyUnit.currentHealth);
-        yield return new WaitForSeconds(1f);
-        if (isDead)
-        {
-            currState = BattleState.LOST;
-            EndBattle();
-        }
-        else
-        {
-            currState = BattleState.SCIENTISTTURN;
-            ScientistTurn();
-        }
+        currState = BattleState.SCIENTISTTURN;
+        ScientistTurn();
     }
     //This ends the battle and displays text appropriate to the outcome
     void EndBattle()
     {
+        StopAllCoroutines();
         if (currState == BattleState.WON)
         {
             dialogueText.text = "Monster slain";
@@ -191,4 +202,45 @@ public class BattleSystem : MonoBehaviour
             dialogueText.text = "You were defeated";
         }
     }
+
+    private void OnEnable()
+    {
+        onPlayerDie.OnEventRaised += OnPlayerDie;
+        onEnemyDie.OnEventRaised += OnEnemyDie;
+        onPlayerStatsUpdated.OnEventRaised += UpdatePlayerStats;
+        onEnemyStatsUpdated.OnEventRaised += UpdateEnemyStats;
+    }
+
+    private void OnDisable()
+    {
+        onPlayerDie.OnEventRaised -= OnPlayerDie;
+        onEnemyDie.OnEventRaised -= OnEnemyDie;
+        onPlayerStatsUpdated.OnEventRaised -= UpdatePlayerStats;
+        onEnemyStatsUpdated.OnEventRaised -= UpdateEnemyStats;
+    }
+
+    private void UpdatePlayerStats(MonsterStats obj)
+    {
+        playerStats = obj;
+        monsterHUD.setHealth(obj.health);
+    }
+
+    private void UpdateEnemyStats(MonsterStats obj)
+    {
+        enemyStats = obj;
+        enemyHUD.setHealth(obj.health);
+    }
+
+    private void OnEnemyDie()
+    {
+        currState = BattleState.WON;
+        EndBattle();
+    }
+
+    public void OnPlayerDie()
+    {
+        currState = BattleState.LOST;
+        EndBattle();
+    }
+    
 }
