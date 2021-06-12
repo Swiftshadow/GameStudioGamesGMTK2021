@@ -30,10 +30,10 @@ public class TestBattleSystem : MonoBehaviour
     void Start()
     {
         currState = BattleState.START;
-        BeginBattle();
+        StartCoroutine(BeginBattle());
     }
 
-    void BeginBattle()
+    IEnumerator BeginBattle()
     {
         //make GO's of the 3 lads and save em in variables for later reference
         GameObject monster =  Instantiate(monsterPrefab, monsterPos);
@@ -51,5 +51,69 @@ public class TestBattleSystem : MonoBehaviour
         monsterHUD.setHUD(monsterUnit);
         enemyHUD.setHUD(enemyUnit);
         scientistHUD.setHUD(scientistUnit);
+        yield return new WaitForSeconds(2f);
+
+        currState = BattleState.PLAYERTURN;
+        PlayerTurn();
+    }
+
+    IEnumerator PlayerAttack()
+    {
+        bool isDead = enemyUnit.TakeDamage(playerUnit.damage);
+        enemyHUD.setHealth(enemyUnit.currentHealth);
+        dialogueText.text = "Success";
+        yield return new WaitForSeconds(2f);
+        if(isDead)
+        {
+            currState = BattleState.WON;
+            EndBattle();
+        }
+        else
+        {
+            currState = BattleState.ENEMYTURN;
+            StartCoroutine(EnemyTurn());
+        }
+    }
+    IEnumerator EnemyTurn()
+    {
+        dialogueText.text = enemyUnit.unitName + " attacks";
+        yield return new WaitForSeconds(1f);
+        bool isDead = playerUnit.TakeDamage(enemyUnit.damage);
+        playerHUD.setHealth(playerUnit.currentHP);
+        yield return new WaitForSeconds(1f);
+        if (isDead)
+        {
+            currState = BattleState.LOST;
+            EndBattle();
+        }
+        else
+        {
+            currState = BattleState.PLAYERTURN;
+            PlayerTurn();
+        }
+    }
+    void EndBattle()
+    {
+        if(currState == BattleState.WON)
+        {
+            dialogueText.text = "Monster slain";
+        }
+        else if(currState == BattleState.LOST)
+        {
+            dialogueText.text = "You were defeated";
+        }
+    }
+    void PlayerTurn()
+    {
+        dialogueText.text = "Make your choice: ";
+    }
+    
+    public void OnAttackButton()
+    {
+        if(currState != BattleState.PLAYERTURN)
+        {
+            return;
+        }
+        StartCoroutine(PlayerAttack());
     }
 }
