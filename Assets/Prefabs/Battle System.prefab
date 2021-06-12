@@ -1,0 +1,65 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &9074188961590106581
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 9074188961590106579}
+  - component: {fileID: 9074188961590106578}
+  m_Layer: 0
+  m_Name: Battle System
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &9074188961590106579
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9074188961590106581}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1031.9935, y: 163.91927, z: -2360.6106}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &9074188961590106578
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9074188961590106581}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b5f95b27a9de1345a6a10813827681a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  monsterPrefab: {fileID: 4296755024153553400, guid: 0bb45a5882db1ce408fa4c628fcf89c3, type: 3}
+  enemyPrefab: {fileID: 8690689543609475275, guid: fe3651e06ffa0a14b8e5d59e9a0a2eca, type: 3}
+  scientistPrefab: {fileID: 965183619448781297, guid: aa05487853a77a24cafabc184a3f75a6, type: 3}
+  monsterPos: {fileID: 0}
+  enemyPos: {fileID: 0}
+  scientistPos: {fileID: 0}
+  doPlayerAction: {fileID: 11400000, guid: 54ed12c26fd93704eba43cd172ac99a3, type: 2}
+  doEnemyAction: {fileID: 11400000, guid: ab93bf510fcc2b9498652e33a8a76981, type: 2}
+  queuePlayerAction: {fileID: 11400000, guid: aae2054c7899d4346a86828d38faa5ac, type: 2}
+  onPlayerDie: {fileID: 11400000, guid: ac4634c073aa9b94aa84b37630e005b0, type: 2}
+  onEnemyDie: {fileID: 11400000, guid: 951306904e0debb448b9440091fecb11, type: 2}
+  onPlayerStatsUpdated: {fileID: 11400000, guid: 765dd2bc9a2f7be4ba53ea959e29c25f, type: 2}
+  onEnemyStatsUpdated: {fileID: 11400000, guid: 744028881460599458c216269f854fa3, type: 2}
+  requestPlayerStats: {fileID: 11400000, guid: 33bdcc49362f67743965d0c85f7ceb03, type: 2}
+  requestEnemyStats: {fileID: 11400000, guid: c10b5a8b2ddd35c4f9c679a4cb69e5e2, type: 2}
+  monsterHUD: {fileID: 0}
+  enemyHUD: {fileID: 0}
+  scientistHUD: {fileID: 0}
+  dialogueText: {fileID: 0}
+  currState: 0

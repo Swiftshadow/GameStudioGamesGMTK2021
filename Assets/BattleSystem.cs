@@ -5,6 +5,7 @@ using Channels;
 using Monsters;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 public enum BattleState { START, SCIENTISTTURN, MONSTERTURN, ENEMYTURN, WON, LOST }
 public class BattleSystem : MonoBehaviour
 {
@@ -51,20 +52,37 @@ public class BattleSystem : MonoBehaviour
     public BattleHUD scientistHUD;
 
     //text object for any dialogue needed
-    public Text dialogueText;
+    public TextMeshProUGUI dialogueText;
 
     //The current state of the battle-see above enum for states
     public BattleState currState;
+
+    //these are just for the ui
+    GameObject tex;
+    public GameObject monsterRow;
+    public GameObject scientistRow;
     
     //Set the battlestate to start and start the coroutine
     void Start()
     {
+        tex = GameObject.Find("DialogueText");
         currState = BattleState.START;
         StartCoroutine(BeginBattle());
     }
 
     IEnumerator BeginBattle()
     {
+        GameObject mon = GameObject.Find("MonsterHUD");
+        monsterHUD = mon.GetComponent<BattleHUD>();
+
+        GameObject ene = GameObject.Find("EnemyHUD");
+        enemyHUD = ene.GetComponent<BattleHUD>();
+
+        GameObject sci = GameObject.Find("ScientistHUD");
+        scientistHUD = sci.GetComponent<BattleHUD>();
+
+        
+        dialogueText = tex.GetComponent<TextMeshProUGUI>();
         //make GO's of the 3 lads and save em in variables for later reference
         /*
         GameObject monster = Instantiate(monsterPrefab, monsterPos);
@@ -97,6 +115,8 @@ public class BattleSystem : MonoBehaviour
     //Display the text. Don't forget to add the buttons to actually, yknow, do stuff
     void ScientistTurn()
     {
+        scientistRow.SetActive(true);
+        tex.SetActive(false);
         resetPlayerAttack.RaiseEvent();
         resetPlayerDefense.RaiseEvent();
         dialogueText.text = "Make your choice: ";//attack button and defend button go next to this

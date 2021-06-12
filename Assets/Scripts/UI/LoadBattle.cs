@@ -2,13 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MainMenuBehaviour : MonoBehaviour
+public class LoadBattle : MonoBehaviour
 {
     // Start is called before the first frame update
     [System.Obsolete]
     void Start()
     {
-        Application.LoadLevelAdditive(1);
+        Application.LoadLevelAdditive(3);
     }
 
     // Update is called once per frame
