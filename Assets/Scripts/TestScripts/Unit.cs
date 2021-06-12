@@ -21,6 +21,7 @@ public class Unit : MonoBehaviour
     //public void buffDefense
     public bool TakeDamage(int dmg)
     {
+
         currentHealth -= dmg;
         if(currentHealth <= 0)
         {
@@ -31,5 +32,4 @@ public class Unit : MonoBehaviour
             return false;
         }
     }
-   
 }
