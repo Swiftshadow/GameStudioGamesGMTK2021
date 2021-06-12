@@ -2,8 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-public enum BattleState {START, PLAYERTURN, ENEMYTURN, WON, LOST }
-public class TestBattleSystem : MonoBehaviour
+public enum BattleState { START, SCIENTISTTURN, MONSTERTURN, ENEMYTURN, WON, LOST }
+public class BattleSystem : MonoBehaviour
 {
     //Monster/scientist/enemy prefabs made here
     //Remember: player controls the scientist
@@ -24,7 +24,7 @@ public class TestBattleSystem : MonoBehaviour
     public BattleHUD scientistHUD;
 
     public Text dialogueText;
-    
+
     public BattleState currState;
     // Start is called before the first frame update
     void Start()
@@ -36,7 +36,7 @@ public class TestBattleSystem : MonoBehaviour
     IEnumerator BeginBattle()
     {
         //make GO's of the 3 lads and save em in variables for later reference
-        GameObject monster =  Instantiate(monsterPrefab, monsterPos);
+        GameObject monster = Instantiate(monsterPrefab, monsterPos);
         monsterUnit = monster.GetComponent<Unit>();
 
         GameObject enemy = Instantiate(enemyPrefab, enemyPos);
@@ -53,45 +53,23 @@ public class TestBattleSystem : MonoBehaviour
         scientistHUD.setHUD(scientistUnit);
         yield return new WaitForSeconds(2f);
 
-        currState = BattleState.PLAYERTURN;
-        PlayerTurn();
+        currState = BattleState.SCIENTISTTURN;
+        ScientistTurn();
+    }
+    void ScientistTurn()
+    {
+        dialogueText.text = "Make your choice: ";//attack button and defend button go next to this
+    }
+    public void OnAttackButton()
+    {
+        if (currState != BattleState.SCIENTISTTURN)
+        {
+            return;
+        }
+        StartCoroutine(MonsterAttack());
     }
 
-   
-    IEnumerator EnemyTurn()
-    {
-        dialogueText.text = enemyUnit.unitName + " attacks";
-        yield return new WaitForSeconds(1f);
-        bool isDead = enemyUnit.TakeDamage(enemyUnit.damage);
-        enemyHUD.setHealth(enemyUnit.currentHealth);
-        yield return new WaitForSeconds(1f);
-        if (isDead)
-        {
-            currState = BattleState.LOST;
-            EndBattle();
-        }
-        else
-        {
-            currState = BattleState.PLAYERTURN;
-            PlayerTurn();
-        }
-    }
-    void EndBattle()
-    {
-        if(currState == BattleState.WON)
-        {
-            dialogueText.text = "Monster slain";
-        }
-        else if(currState == BattleState.LOST)
-        {
-            dialogueText.text = "You were defeated";
-        }
-    }
-    void PlayerTurn()
-    {
-        dialogueText.text = "Make your choice: ";
-    }
-    IEnumerator PlayerAttack()
+    IEnumerator MonsterAttack()
     {
         bool isDead = enemyUnit.TakeDamage(monsterUnit.damage);
         enemyHUD.setHealth(enemyUnit.currentHealth);
@@ -108,29 +86,50 @@ public class TestBattleSystem : MonoBehaviour
             StartCoroutine(EnemyTurn());
         }
     }
-
-    public void OnAttackButton()
+    public void OnDefendButton()
     {
-        if(currState != BattleState.PLAYERTURN)
+        if (currState != BattleState.SCIENTISTTURN)
         {
             return;
         }
-        StartCoroutine(PlayerAttack());
+        StartCoroutine(ScientistDefend());
     }
-    IEnumerator PlayerDefend()
+    IEnumerator ScientistDefend()
     {
-        scientistUnit.Defend(5);
+        monsterUnit.Defend(5);
         //do i need something with the HUD here?
         yield return new WaitForSeconds(2f);
         currState = BattleState.ENEMYTURN;
         StartCoroutine(EnemyTurn());
     }
-    public void OnDefendButton()
+
+    IEnumerator EnemyTurn()
     {
-        if (currState != BattleState.PLAYERTURN)
+        dialogueText.text = enemyUnit.unitName + " attacks";
+        yield return new WaitForSeconds(1f);
+        bool isDead = enemyUnit.TakeDamage(enemyUnit.damage);
+        enemyHUD.setHealth(enemyUnit.currentHealth);
+        yield return new WaitForSeconds(1f);
+        if (isDead)
         {
-            return;
+            currState = BattleState.LOST;
+            EndBattle();
         }
-        StartCoroutine(PlayerDefend());
+        else
+        {
+            currState = BattleState.SCIENTISTTURN;
+            ScientistTurn();
+        }
+    }
+    void EndBattle()
+    {
+        if (currState == BattleState.WON)
+        {
+            dialogueText.text = "Monster slain";
+        }
+        else if (currState == BattleState.LOST)
+        {
+            dialogueText.text = "You were defeated";
+        }
     }
 }
