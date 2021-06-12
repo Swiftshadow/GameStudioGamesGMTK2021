@@ -1,5 +1,5 @@
 using System;
-using BodyParts;
+using Monsters;
 using UnityEngine;
 
 namespace Channels

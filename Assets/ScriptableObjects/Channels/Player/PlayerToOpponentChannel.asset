@@ -9,10 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4158b3943b90bf64abe8fbc2357ca8e2, type: 3}
-  m_Name: DefaultFeet
+  m_Script: {fileID: 11500000, guid: 5645877a0b0d4ae9af9322bfbc83b46a, type: 3}
+  m_Name: PlayerToOpponentChannel
   m_EditorClassIdentifier: 
-  baseHealth: 10
-  baseAttack: 1
-  baseDefense: 1
-  baseDurability: 10
+  description: 
