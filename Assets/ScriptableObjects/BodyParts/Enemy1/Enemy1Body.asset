@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: Enemy1Body
   m_EditorClassIdentifier: 
   description: 
-  baseHealth: 10
-  baseAttack: 1
-  baseDefense: 0
+  baseHealth: 50
+  baseAttack: 10
+  baseDefense: 8
   baseDurability: 10
   xLocOffset: 5.82
   yLocOffset: 0.44

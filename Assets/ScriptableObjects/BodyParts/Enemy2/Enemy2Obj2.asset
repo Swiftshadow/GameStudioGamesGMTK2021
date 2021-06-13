@@ -12,13 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4158b3943b90bf64abe8fbc2357ca8e2, type: 3}
   m_Name: Enemy2Obj2
   m_EditorClassIdentifier: 
-  description: 
+  description: It likes to lend a hand. Extra hands mean extra damage!
   baseHealth: 0
-  baseAttack: 0
+  baseAttack: 5
   baseDefense: 0
   baseDurability: 0
   xLocOffset: 0
   yLocOffset: 0
   xScaleOffset: 1
   yScaleOffset: 1
-  sprite: {fileID: -6238760558576065542, guid: 75fb6c22a53ff924395dfd40d8912270, type: 3}
+  sprite: {fileID: 21300000, guid: 6f17d5e9ef65d0c45887edcca17a2332, type: 3}

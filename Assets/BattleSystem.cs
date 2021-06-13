@@ -289,6 +289,11 @@ public class BattleSystem : MonoBehaviour
             partSelect.SetActive(true);
             unlockableButtons[unlockedButtonsCount].SetActive(true);
             ++unlockedButtonsCount;
+            if (unlockedButtonsCount >= 2)
+            {
+                return;
+            }
+            
             StartCoroutine(DelayPartSelect());
         }
         else if (currState == BattleState.LOST)

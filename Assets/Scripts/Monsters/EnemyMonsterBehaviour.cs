@@ -96,7 +96,7 @@ namespace Monsters
 
         private void NextMonster()
         {
-            if (counter >= enemies.Count - 1)
+            if (counter >= enemies.Count)
             {
                 winGame.RaiseEvent();
                 return;
