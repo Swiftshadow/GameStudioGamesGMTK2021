@@ -543,6 +543,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09ab88ba84aaad14caa4857b7b7ba7a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dieEvent: {fileID: 11400000, guid: ac4634c073aa9b94aa84b37630e005b0, type: 2}
+  winEvent: {fileID: 11400000, guid: 006d5bb87ec646c4f86f6ec0bb7e7441, type: 2}
 --- !u!114 &3271746588818159522
 MonoBehaviour:
   m_ObjectHideFlags: 0
