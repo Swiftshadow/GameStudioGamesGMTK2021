@@ -30,6 +30,7 @@ namespace UI
             Debug.Log("Showing icon!");
             TextMeshProUGUI tmp = gameObject.GetComponent<TextMeshProUGUI>();
             tmp.text = $"<sprite={obj + indexToGrab}>";
+            ++indexToGrab;
         }
     }
 }

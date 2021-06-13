@@ -1207,7 +1207,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: c7a26c64e95bb2e45b1c01b1ce04435a, type: 2}
   - {fileID: 11400000, guid: 874aa77f71ceed5409f666504bf318a7, type: 2}
   - {fileID: 11400000, guid: 293d1b26ac82c6949993a0d94d780dde, type: 2}
-  partIndex: 0
+  indexToGrab: 0
 --- !u!1 &487499454
 GameObject:
   m_ObjectHideFlags: 0
@@ -1548,7 +1548,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: c7a26c64e95bb2e45b1c01b1ce04435a, type: 2}
   - {fileID: 11400000, guid: 874aa77f71ceed5409f666504bf318a7, type: 2}
   - {fileID: 11400000, guid: 293d1b26ac82c6949993a0d94d780dde, type: 2}
-  partIndex: 1
+  indexToGrab: 1
 --- !u!1001 &711608243
 PrefabInstance:
   m_ObjectHideFlags: 0

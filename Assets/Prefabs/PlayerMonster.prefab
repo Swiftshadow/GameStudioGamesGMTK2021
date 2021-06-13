@@ -163,6 +163,18 @@ PrefabInstance:
       propertyPath: partChangedListener
       value: 
       objectReference: {fileID: 11400000, guid: fe6e7df2a582c2c43b3a46bad7f63c2f, type: 2}
+    - target: {fileID: 4296755024153553401, guid: 0bb45a5882db1ce408fa4c628fcf89c3, type: 3}
+      propertyPath: attachedParts.Array.size
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4296755024153553401, guid: 0bb45a5882db1ce408fa4c628fcf89c3, type: 3}
+      propertyPath: attachedParts.Array.data[5]
+      value: 
+      objectReference: {fileID: 11400000, guid: f042f32058b25664895cbdfd311cd457, type: 2}
+    - target: {fileID: 4296755024153553401, guid: 0bb45a5882db1ce408fa4c628fcf89c3, type: 3}
+      propertyPath: attachedParts.Array.data[6]
+      value: 
+      objectReference: {fileID: 11400000, guid: c57a21a4fcba09a4fa70a64f01f47b6c, type: 2}
     - target: {fileID: 4296755024358642210, guid: 0bb45a5882db1ce408fa4c628fcf89c3, type: 3}
       propertyPath: m_Sprite
       value: 
