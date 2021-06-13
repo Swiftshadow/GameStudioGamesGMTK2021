@@ -176,7 +176,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1811459052070429101, guid: 536e6393b3d1a8e42a428d17108780d8, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: OnMonsterStall
+      value: OnMonsterRiskReward
       objectReference: {fileID: 0}
     - target: {fileID: 1811459052070429101, guid: 536e6393b3d1a8e42a428d17108780d8, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
@@ -1077,7 +1077,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1811459052070429101, guid: 536e6393b3d1a8e42a428d17108780d8, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: OnMonsterDefend
+      value: OnMonsterHeal
       objectReference: {fileID: 0}
     - target: {fileID: 1811459052070429101, guid: 536e6393b3d1a8e42a428d17108780d8, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
