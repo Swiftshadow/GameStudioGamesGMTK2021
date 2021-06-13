@@ -12,9 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4158b3943b90bf64abe8fbc2357ca8e2, type: 3}
   m_Name: Enemy1Obj2
   m_EditorClassIdentifier: 
-  description: 
+  description: Bulky Tail! Increase your defense!
   baseHealth: 0
   baseAttack: 0
-  baseDefense: 0
+  baseDefense: 5
   baseDurability: 0
+  xLocOffset: 0
+  yLocOffset: 0
+  xScaleOffset: 0
+  yScaleOffset: 0
   sprite: {fileID: 21300000, guid: 737ddcb5b1d372b41bd4b50bff7656c1, type: 3}

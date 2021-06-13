@@ -95,6 +95,11 @@
             <e p="QObjectList.cs" t="Include" />
           </e>
         </e>
+        <e p="Scenes" t="Include">
+          <e p="Bobby Testing" t="Include">
+            <e p="getAnimParam.cs" t="Include" />
+          </e>
+        </e>
         <e p="Scripts" t="Include">
           <e p="BattleHUD.cs" t="Include" />
           <e p="BodyParts" t="Include">

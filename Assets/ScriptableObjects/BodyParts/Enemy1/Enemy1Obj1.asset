@@ -12,10 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4158b3943b90bf64abe8fbc2357ca8e2, type: 3}
   m_Name: Enemy1Obj1
   m_EditorClassIdentifier: 
-  description: Wonderful eyebrows. Evil glares raise your attack, but lower your
-    health
-  baseHealth: 5
-  baseAttack: 2
+  description: Wonderful eyebrows. Evil glares raise your attack
+  baseHealth: 0
+  baseAttack: 5
   baseDefense: 0
   baseDurability: 0
   xLocOffset: 0

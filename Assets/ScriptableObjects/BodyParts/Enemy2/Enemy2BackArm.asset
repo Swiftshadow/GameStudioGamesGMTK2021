@@ -13,12 +13,12 @@ MonoBehaviour:
   m_Name: Enemy2BackArm
   m_EditorClassIdentifier: 
   description: 
-  baseHealth: 10
-  baseAttack: 1
+  baseHealth: 0
+  baseAttack: 0
   baseDefense: 0
-  baseDurability: 10
+  baseDurability: 0
   xLocOffset: 6.87
-  yLocOffset: 1.14
+  yLocOffset: -2.14
   xScaleOffset: -1
   yScaleOffset: 1
   sprite: {fileID: 21300000, guid: 23065dafc5d909f48b08d9d8477d22dc, type: 3}

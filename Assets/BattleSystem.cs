@@ -47,7 +47,10 @@ public class BattleSystem : MonoBehaviour
     
     private MonsterStats playerStats;
     private MonsterStats enemyStats;
-    
+
+    [SerializeField] private GameObject[] unlockableButtons;
+    private int unlockedButtonsCount = 0;
+
     //The heads-up display objects for the 3 actors
     public BattleHUD monsterHUD;
     public BattleHUD enemyHUD;
@@ -159,7 +162,7 @@ public class BattleSystem : MonoBehaviour
         //monsterUnit.buffDamage(monsterUnit.damage);
         queuePlayerAction.RaiseEvent(MONSTER_ACTIONS.BUFF_ATTACK);
         doPlayerAction.RaiseEvent();
-        dialogueText.text = "Your creature grows stronger";
+        dialogueText.text = "Your creature grows stronger!";
         yield return new WaitForSeconds(2f);
         monsterRow.SetActive(true);
         tex.SetActive(false);
@@ -175,7 +178,7 @@ public class BattleSystem : MonoBehaviour
         //monsterUnit.Defend(enemyUnit.damage);//?
         queuePlayerAction.RaiseEvent(MONSTER_ACTIONS.BUFF_DEFENSE);
         doPlayerAction.RaiseEvent();
-        dialogueText.text = "Your creature beefs up";
+        dialogueText.text = "Your creature beefs up!";
         yield return new WaitForSeconds(2f);
         monsterRow.SetActive(true);
         tex.SetActive(false);
@@ -201,7 +204,7 @@ public class BattleSystem : MonoBehaviour
         tex.SetActive(true);
         //bool isDead = enemyUnit.TakeDamage(monsterUnit.damage);
         queuePlayerAction.RaiseEvent(MONSTER_ACTIONS.BASE_ATTACK);
-        dialogueText.text = "Your monster attacks";
+        dialogueText.text = "Your monster attacks!";
         doPlayerAction.RaiseEvent();
         yield return new WaitForSeconds(2f);
         currState = BattleState.ENEMYTURN;
@@ -217,21 +220,56 @@ public class BattleSystem : MonoBehaviour
         }
         StartCoroutine(MonsterAttack());
     }
-    /* this isnt needed, as the monster itself doesn't defend, but i'm keeping it commented in case the logic comes in handy
-    IEnumerator MonsterDefend()
+
+    public void OnMonsterHeal()
     {
-        monsterUnit.Defend(5);
+        if (currState != BattleState.MONSTERTURN)
+        {
+            return;
+        }
+        StartCoroutine(MonsterHeal());
+    }
+    
+    public void OnMonsterRiskReward()
+    {
+        if (currState != BattleState.MONSTERTURN)
+        {
+            return;
+        }
+        StartCoroutine(MonsterRiskReward());
+    }
+    
+    IEnumerator MonsterHeal()
+    {
+        monsterRow.SetActive(false);
+        tex.SetActive(true);
+        queuePlayerAction.RaiseEvent(MONSTER_ACTIONS.HEAL);
+        dialogueText.text = "Your monster heals itself!";
+        doPlayerAction.RaiseEvent();
         //do i need something with the HUD here?
         yield return new WaitForSeconds(2f);
         currState = BattleState.ENEMYTURN;
         StartCoroutine(EnemyTurn());
     }
-    */
+    
+    IEnumerator MonsterRiskReward()
+    {
+        monsterRow.SetActive(false);
+        tex.SetActive(true);
+        queuePlayerAction.RaiseEvent(MONSTER_ACTIONS.RISK_REWARD);
+        dialogueText.text = "Your monster performs a risky attack!";
+        doPlayerAction.RaiseEvent();
+        //do i need something with the HUD here?
+        yield return new WaitForSeconds(2f);
+        currState = BattleState.ENEMYTURN;
+        StartCoroutine(EnemyTurn());
+    }
+    
     //The enemy's actions. Basic attack, deals whatever health damage, then checks if the monster's dead.
     //if not, progress back to the scientist's turn and start over
     IEnumerator EnemyTurn()
     {
-        dialogueText.text = enemyStats.name + " attacks";
+        dialogueText.text = enemyStats.name + " makes its move";
         doEnemyAction.RaiseEvent();
         yield return new WaitForSeconds(1f);
         currState = BattleState.SCIENTISTTURN;
@@ -249,7 +287,14 @@ public class BattleSystem : MonoBehaviour
             Debug.Log("Player won!");
             dialogueText.text = "Monster slain";
             partSelect.SetActive(true);
-            selectPart.RaiseEvent();
+            unlockableButtons[unlockedButtonsCount].SetActive(true);
+            ++unlockedButtonsCount;
+            if (unlockedButtonsCount >= 2)
+            {
+                return;
+            }
+            
+            StartCoroutine(DelayPartSelect());
         }
         else if (currState == BattleState.LOST)
         {
@@ -258,6 +303,12 @@ public class BattleSystem : MonoBehaviour
         }
     }
 
+    private IEnumerator DelayPartSelect()
+    {
+        yield return new WaitForSeconds(0.5f);
+        selectPart.RaiseEvent();
+    }
+    
     private void OnEnable()
     {
         onPlayerDie.OnEventRaised += OnPlayerDie;

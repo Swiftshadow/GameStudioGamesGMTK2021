@@ -13,12 +13,12 @@ MonoBehaviour:
   m_Name: Enemy2Body
   m_EditorClassIdentifier: 
   description: 
-  baseHealth: 10
-  baseAttack: 1
-  baseDefense: 0
+  baseHealth: 65
+  baseAttack: 20
+  baseDefense: 8
   baseDurability: 10
   xLocOffset: 5.82
-  yLocOffset: 1.2
+  yLocOffset: -2.2
   xScaleOffset: -1
   yScaleOffset: 1
   sprite: {fileID: 21300000, guid: e06dc36ad129b9841a698f487973450e, type: 3}

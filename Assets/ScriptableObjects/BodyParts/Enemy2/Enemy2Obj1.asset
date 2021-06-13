@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4158b3943b90bf64abe8fbc2357ca8e2, type: 3}
   m_Name: Enemy2Obj1
   m_EditorClassIdentifier: 
-  description: 
+  description: Ewwm slimy! Predict where your opponent will hit, boosting your defense!
   baseHealth: 0
   baseAttack: 0
-  baseDefense: 0
+  baseDefense: 5
   baseDurability: 0
   xLocOffset: 0
   yLocOffset: 0

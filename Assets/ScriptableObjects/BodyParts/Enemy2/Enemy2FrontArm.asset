@@ -13,12 +13,12 @@ MonoBehaviour:
   m_Name: Enemy2FrontArm
   m_EditorClassIdentifier: 
   description: 
-  baseHealth: 10
-  baseAttack: 1
+  baseHealth: 0
+  baseAttack: 0
   baseDefense: 0
   baseDurability: 10
   xLocOffset: 4.43
-  yLocOffset: 1.14
+  yLocOffset: -2.14
   xScaleOffset: -1
   yScaleOffset: 1
   sprite: {fileID: 21300000, guid: 1d222f4d834588f498c10b0abb92edad, type: 3}

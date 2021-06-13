@@ -25,8 +25,11 @@ namespace Monsters
         [SerializeField] private VoidChannel restartBattle;
 
         [SerializeField] private VoidChannel winGame;
+
+        [SerializeField] private StringChannel changeNameChannel;
         
-        private readonly Queue<MONSTER_ACTIONS> actionList = new Queue<MONSTER_ACTIONS>();
+        [SerializeField]
+        private List<MONSTER_ACTIONS> actionList = new List<MONSTER_ACTIONS>();
 
         [SerializeField]
         private BodyPartBaseSO[] partArray = new BodyPartBaseSO[2];
@@ -39,6 +42,16 @@ namespace Monsters
         [SerializeField] private List<BodyPartBaseSO> enemyBoss = new List<BodyPartBaseSO>();
         [SerializeField] private BodyPartBaseSO[] enemyThreeParts = new BodyPartBaseSO[2];
 
+        [SerializeField] private string[] monsterNames;
+
+        [SerializeField] private SpriteRenderer nextMoveIconOne;
+        [SerializeField] private SpriteRenderer nextMoveIconTwo;
+        [SerializeField] private Sprite attackSprite;
+        [SerializeField] private Sprite defendSprite;
+        [SerializeField] private Sprite buffAttackSprite;
+        [SerializeField] private Sprite buffDefenseSprite;
+        [SerializeField] private Sprite defensiveAttack;
+        
         private List<List<BodyPartBaseSO>> enemies = new List<List<BodyPartBaseSO>>();
         private List<BodyPartBaseSO[]> parts = new List<BodyPartBaseSO[]>();
 
@@ -46,18 +59,19 @@ namespace Monsters
         private void GenerateAction()
         {
             MONSTER_ACTIONS newAction = (MONSTER_ACTIONS)Random.Range(0, (int) MONSTER_ACTIONS.STALL);
-            actionList.Enqueue(newAction);
+            actionList.Add(newAction);
             enemyQueueActionChannel.RaiseEvent(newAction);
         }
 
         public void DoAction()
         {
             //enemyDoActionChannel.RaiseEvent();
-            actionList.Dequeue();
+            actionList.RemoveAt(0);
             if (actionList.Count <= 2)
             {
                 GenerateAction();
             }
+            ShowIcon();
 
         }
 
@@ -106,7 +120,7 @@ namespace Monsters
                 child.localScale = newScale;
                 enemyBodyChange.RaiseEvent(newPart);
             }
-            
+            changeNameChannel.RaiseEvent(monsterNames[counter]);
             ++counter;
             restartBattle.RaiseEvent();
         }
@@ -119,12 +133,41 @@ namespace Monsters
             {
                 enemyQueueActionChannel.RaiseEvent(monsterAction);
             }
-            
+            ShowIcon();
             enemies.Add(enemyTwo);
             enemies.Add(enemyBoss);
             parts.Add(enemyTwoParts);
             parts.Add(enemyThreeParts);
         }
-        
+
+
+        private void ShowIcon()
+        {
+            MONSTER_ACTIONS action = actionList[0];
+            switch (action)
+            {
+                case MONSTER_ACTIONS.BASE_ATTACK:
+                    nextMoveIconOne.sprite = attackSprite;
+                    break;
+                case MONSTER_ACTIONS.SPECIAL_ATTACK:
+                    nextMoveIconOne.sprite = defensiveAttack;
+                    break;
+                case MONSTER_ACTIONS.DEFEND:
+                    nextMoveIconOne.sprite = defendSprite;
+                    break;
+                case MONSTER_ACTIONS.BUFF_ATTACK:
+                    nextMoveIconOne.sprite = buffAttackSprite;
+                    break;
+                case MONSTER_ACTIONS.BUFF_DEFENSE:
+                    nextMoveIconOne.sprite = buffDefenseSprite;
+                    break;
+                case MONSTER_ACTIONS.STALL:
+                    break;
+                case MONSTER_ACTIONS.HEAL:
+                    break;
+                case MONSTER_ACTIONS.RISK_REWARD:
+                    break;
+            }
+        }
     }
 }
