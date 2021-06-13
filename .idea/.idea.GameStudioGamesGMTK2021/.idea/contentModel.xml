@@ -127,6 +127,7 @@
             <e p="LoadBattle.cs" t="Include" />
             <e p="MainMenuBehaviour.cs" t="Include" />
             <e p="MainMenuScript.cs" t="Include" />
+            <e p="PartSelectButon.cs" t="Include" />
             <e p="PartSelectButtonPictures.cs" t="Include" />
           </e>
         </e>

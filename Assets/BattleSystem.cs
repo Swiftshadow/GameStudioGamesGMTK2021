@@ -43,6 +43,7 @@ public class BattleSystem : MonoBehaviour
     [SerializeField] private VoidChannel resetEnemyDefense;
     [SerializeField] private VoidChannel resetEnemyHealth;
     [SerializeField] private VoidChannel selectPart;
+    [SerializeField] private VoidChannel restartBattle;
     
     private MonsterStats playerStats;
     private MonsterStats enemyStats;
@@ -68,10 +69,15 @@ public class BattleSystem : MonoBehaviour
     void Start()
     {
         tex = GameObject.Find("DialogueText");
+        StartBattle();
+    }
+
+    private void StartBattle()
+    {
         currState = BattleState.START;
         StartCoroutine(BeginBattle());
     }
-
+    
     IEnumerator BeginBattle()
     {
         GameObject mon = GameObject.Find("MonsterHUD");
@@ -258,6 +264,7 @@ public class BattleSystem : MonoBehaviour
         onEnemyDie.OnEventRaised += OnEnemyDie;
         onPlayerStatsUpdated.OnEventRaised += UpdatePlayerStats;
         onEnemyStatsUpdated.OnEventRaised += UpdateEnemyStats;
+        restartBattle.OnEventRaised += StartBattle;
     }
 
     private void OnDisable()
@@ -266,6 +273,7 @@ public class BattleSystem : MonoBehaviour
         onEnemyDie.OnEventRaised -= OnEnemyDie;
         onPlayerStatsUpdated.OnEventRaised -= UpdatePlayerStats;
         onEnemyStatsUpdated.OnEventRaised -= UpdateEnemyStats;
+        restartBattle.OnEventRaised -= StartBattle;
     }
 
     private void UpdatePlayerStats(MonsterStats obj)

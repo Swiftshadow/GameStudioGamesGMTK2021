@@ -23,6 +23,12 @@ public class BodyPartBaseSO : ScriptableObject
     private int baseDurability;
     private int durabilityMod;
 
+    public float xLocOffset = 0;
+    public float yLocOffset = 0;
+
+    public float xScaleOffset = 0;
+    public float yScaleOffset = 0;
+    
     public Sprite sprite;
     public int Health
     {

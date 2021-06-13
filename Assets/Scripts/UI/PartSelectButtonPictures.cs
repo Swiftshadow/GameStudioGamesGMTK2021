@@ -11,9 +11,13 @@ namespace UI
 
         [SerializeField] private IntChannel partChannel;
 
+        private BodyPartBaseSO[] partsList;
+        
         private void OnEnable()
         {
             partChannel.OnEventRaised += ShowIcon;
+            partsList = transform.parent.GetComponent<PartSelectButon>()
+                .unlockableParts;
         }
 
         private void OnDisable()
