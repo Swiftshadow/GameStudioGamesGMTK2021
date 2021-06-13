@@ -25,6 +25,8 @@ namespace Monsters
         [SerializeField] private VoidChannel restartBattle;
 
         [SerializeField] private VoidChannel winGame;
+
+        [SerializeField] private StringChannel changeNameChannel;
         
         private readonly Queue<MONSTER_ACTIONS> actionList = new Queue<MONSTER_ACTIONS>();
 
@@ -39,6 +41,8 @@ namespace Monsters
         [SerializeField] private List<BodyPartBaseSO> enemyBoss = new List<BodyPartBaseSO>();
         [SerializeField] private BodyPartBaseSO[] enemyThreeParts = new BodyPartBaseSO[2];
 
+        [SerializeField] private string[] monsterNames;
+        
         private List<List<BodyPartBaseSO>> enemies = new List<List<BodyPartBaseSO>>();
         private List<BodyPartBaseSO[]> parts = new List<BodyPartBaseSO[]>();
 
@@ -106,7 +110,7 @@ namespace Monsters
                 child.localScale = newScale;
                 enemyBodyChange.RaiseEvent(newPart);
             }
-            
+            changeNameChannel.RaiseEvent(monsterNames[counter]);
             ++counter;
             restartBattle.RaiseEvent();
         }
