@@ -14,7 +14,8 @@ namespace Monsters
         EXTRA_1,
         EXTRA_2,
         EXTRA_3,
-        TAIL
+        TAIL,
+        ATTACK
     }
 
     public enum MONSTER_ACTIONS
@@ -120,7 +121,13 @@ namespace Monsters
         /// </summary>
         [SerializeField]
         private Queue<MONSTER_ACTIONS> actions = new Queue<MONSTER_ACTIONS>();
-        
+
+        /// <summary>
+        /// References the monster's animator
+        /// </summary>
+        [SerializeField]
+        private Animator animMonster;
+
         /// <summary>
         /// Gets the part at the given location
         /// </summary>
@@ -221,6 +228,7 @@ namespace Monsters
         public void ChangeAttack(int amount)
         {
             statMods.attack += amount;
+            animMonster.SetTrigger("AttackOn");
         }
 
         /// <summary>
@@ -229,6 +237,7 @@ namespace Monsters
         public void ResetAttack()
         {
             statMods.attack = 0;
+            animMonster.SetTrigger("AttackOff");
         }
         
         /// <summary>
@@ -238,6 +247,7 @@ namespace Monsters
         public void ChangeDefense(int amount)
         {
             statMods.defense += amount;
+            animMonster.SetTrigger("DefenseOn");
         }
 
         /// <summary>
@@ -246,6 +256,7 @@ namespace Monsters
         public void ResetDefense()
         {
             statMods.defense = 0;
+            animMonster.SetTrigger("DefenseOff");
         }
         
         /// <summary>
@@ -360,6 +371,7 @@ namespace Monsters
         private void Start()
         {
             stats = CalculateStats();
+            animMonster = GetComponent<Animator>();
         }
     }
 }
