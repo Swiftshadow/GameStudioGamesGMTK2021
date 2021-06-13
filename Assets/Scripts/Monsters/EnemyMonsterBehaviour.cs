@@ -21,6 +21,8 @@ namespace Monsters
         [SerializeField] private IntChannel partSelectInfoSend;
 
         [SerializeField] private VoidChannel partSelectUI;
+
+        [SerializeField] private VoidChannel restartBattle;
         
         private readonly Queue<MONSTER_ACTIONS> actionList = new Queue<MONSTER_ACTIONS>();
 
@@ -85,10 +87,21 @@ namespace Monsters
                 BodyPartChangeEvent newPart = new BodyPartChangeEvent();
                 newPart.location = (PART_LOCATIONS)i;
                 newPart.newPart = currentEnemy[i];
+                Transform child = transform.GetChild(i);
+                Vector3 newPos = Vector3.zero;
+                newPos.x = newPart.newPart.xLocOffset;
+                newPos.y = newPart.newPart.yLocOffset;
+                child.position = newPos;
+
+                Vector3 newScale = Vector3.one;
+                newScale.x = newPart.newPart.xScaleOffset;
+                newScale.y = newPart.newPart.yScaleOffset;
+                child.localScale = newScale;
                 enemyBodyChange.RaiseEvent(newPart);
             }
-
+            
             ++counter;
+            restartBattle.RaiseEvent();
         }
 
 

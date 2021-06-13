@@ -64,7 +64,8 @@ MonoBehaviour:
   resetEnemyAttack: {fileID: 11400000, guid: 3d1ae8a33663c1640bc08778e5e5f040, type: 2}
   resetEnemyDefense: {fileID: 11400000, guid: a173cdebb76b0c242932506216b1e953, type: 2}
   resetEnemyHealth: {fileID: 11400000, guid: 4885e742f012a8d4fa6dd3f24b721603, type: 2}
-  nextEnemy: {fileID: 11400000, guid: b42a6020a66d8b9499a41210d2f4cc89, type: 2}
+  selectPart: {fileID: 11400000, guid: 646fa0dd95af9bc41931df4931831f46, type: 2}
+  restartBattle: {fileID: 11400000, guid: 6d25a77958b3f96439db3d16a680fdd4, type: 2}
   monsterHUD: {fileID: 0}
   enemyHUD: {fileID: 0}
   scientistHUD: {fileID: 0}
@@ -72,3 +73,4 @@ MonoBehaviour:
   currState: 0
   monsterRow: {fileID: 0}
   scientistRow: {fileID: 0}
+  partSelect: {fileID: 0}
