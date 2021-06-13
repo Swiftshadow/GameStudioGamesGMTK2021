@@ -10,7 +10,8 @@ public enum BattleState { START, SCIENTISTTURN, MONSTERTURN, ENEMYTURN, WON, LOS
 public class BattleSystem : MonoBehaviour
 {
     //Monster/scientist/enemy prefabs made here
-   
+    public AudioSource monsterAttack;
+    public AudioSource buffNoise;
     public GameObject monsterPrefab;
     public GameObject enemyPrefab;
     public GameObject scientistPrefab;
@@ -162,7 +163,12 @@ public class BattleSystem : MonoBehaviour
         //monsterUnit.buffDamage(monsterUnit.damage);
         queuePlayerAction.RaiseEvent(MONSTER_ACTIONS.BUFF_ATTACK);
         doPlayerAction.RaiseEvent();
+<<<<<<< Updated upstream
         dialogueText.text = "Your creature grows stronger!";
+=======
+        dialogueText.text = "Your creature grows stronger";
+        buffNoise.Play();
+>>>>>>> Stashed changes
         yield return new WaitForSeconds(2f);
         monsterRow.SetActive(true);
         tex.SetActive(false);
@@ -178,7 +184,12 @@ public class BattleSystem : MonoBehaviour
         //monsterUnit.Defend(enemyUnit.damage);//?
         queuePlayerAction.RaiseEvent(MONSTER_ACTIONS.BUFF_DEFENSE);
         doPlayerAction.RaiseEvent();
+<<<<<<< Updated upstream
         dialogueText.text = "Your creature beefs up!";
+=======
+        dialogueText.text = "Your creature beefs up";
+        buffNoise.Play();
+>>>>>>> Stashed changes
         yield return new WaitForSeconds(2f);
         monsterRow.SetActive(true);
         tex.SetActive(false);
@@ -204,7 +215,12 @@ public class BattleSystem : MonoBehaviour
         tex.SetActive(true);
         //bool isDead = enemyUnit.TakeDamage(monsterUnit.damage);
         queuePlayerAction.RaiseEvent(MONSTER_ACTIONS.BASE_ATTACK);
+<<<<<<< Updated upstream
         dialogueText.text = "Your monster attacks!";
+=======
+        dialogueText.text = "Your monster attacks";
+        monsterAttack.Play();
+>>>>>>> Stashed changes
         doPlayerAction.RaiseEvent();
         yield return new WaitForSeconds(2f);
         currState = BattleState.ENEMYTURN;
@@ -246,6 +262,7 @@ public class BattleSystem : MonoBehaviour
         queuePlayerAction.RaiseEvent(MONSTER_ACTIONS.HEAL);
         dialogueText.text = "Your monster heals itself!";
         doPlayerAction.RaiseEvent();
+        buffNoise.Play();
         //do i need something with the HUD here?
         yield return new WaitForSeconds(2f);
         currState = BattleState.ENEMYTURN;
@@ -271,6 +288,7 @@ public class BattleSystem : MonoBehaviour
     {
         dialogueText.text = enemyStats.name + " makes its move";
         doEnemyAction.RaiseEvent();
+        monsterAttack.Play();
         yield return new WaitForSeconds(1f);
         currState = BattleState.SCIENTISTTURN;
         ScientistTurn();
