@@ -1137,6 +1137,56 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 2857894006817394915, guid: 536e6393b3d1a8e42a428d17108780d8, type: 3}
   m_PrefabInstance: {fileID: 427203621}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &437575460 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3274925440563274319, guid: 536e6393b3d1a8e42a428d17108780d8, type: 3}
+  m_PrefabInstance: {fileID: 726697001}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &437575461
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 437575460}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1247473215}
+          m_TargetAssemblyTypeName: HoverBehaviour, Assembly-CSharp
+          m_MethodName: One
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 1
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1247473215}
+          m_TargetAssemblyTypeName: HoverBehaviour, Assembly-CSharp
+          m_MethodName: ExitTheHover
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &487499454
 GameObject:
   m_ObjectHideFlags: 0
@@ -1407,6 +1457,56 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 539620546}
   m_CullTransparentMesh: 1
+--- !u!1 &573089564 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3274925440563274319, guid: 536e6393b3d1a8e42a428d17108780d8, type: 3}
+  m_PrefabInstance: {fileID: 711608243}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &573089565
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 573089564}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1247473215}
+          m_TargetAssemblyTypeName: HoverBehaviour, Assembly-CSharp
+          m_MethodName: Two
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 1
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1247473215}
+          m_TargetAssemblyTypeName: HoverBehaviour, Assembly-CSharp
+          m_MethodName: ExitTheHover
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1001 &711608243
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2155,7 +2255,7 @@ Camera:
   m_GameObject: {fileID: 1246523769}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 1
+  m_ClearFlags: 4
   m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
@@ -2215,6 +2315,7 @@ GameObject:
   - component: {fileID: 1247473214}
   - component: {fileID: 1247473213}
   - component: {fileID: 1247473212}
+  - component: {fileID: 1247473215}
   m_Layer: 5
   m_Name: New Body Party
   m_TagString: Untagged
@@ -2306,6 +2407,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1247473210}
   m_CullTransparentMesh: 1
+--- !u!114 &1247473215
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1247473210}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cde9d8d56bed2b14aab69a878814cd19, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogueText: {fileID: 539620548}
 --- !u!1 &1406959373
 GameObject:
   m_ObjectHideFlags: 0
