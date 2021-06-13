@@ -13,8 +13,6 @@ namespace UI
         [SerializeField] private VoidChannel nextEnemy;
 
         public BodyPartBaseSO[] unlockableParts;
-        
-        [SerializeField] private int indexToGrab;
         private int passedIndex;
         private void OnEnable()
         {
@@ -34,6 +32,8 @@ namespace UI
         public void SelectPart()
         {
             BodyPartChangeEvent change = new BodyPartChangeEvent();
+            int indexToGrab = transform.GetChild(0)
+                .GetComponent<PartSelectButtonPictures>().indexToGrab - 1;
             change.newPart = unlockableParts[passedIndex + indexToGrab];
             Debug.Log(passedIndex + indexToGrab);
             switch (passedIndex + indexToGrab)

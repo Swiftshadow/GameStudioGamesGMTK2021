@@ -10,15 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4158b3943b90bf64abe8fbc2357ca8e2, type: 3}
-  m_Name: Enemy1Body
+  m_Name: EnemyHead
   m_EditorClassIdentifier: 
   description: 
   baseHealth: 10
   baseAttack: 1
   baseDefense: 0
   baseDurability: 10
-  xLocOffset: 5.82
+  xLocOffset: 4.96
   yLocOffset: 0.44
   xScaleOffset: 0
   yScaleOffset: 0
-  sprite: {fileID: 8176783654327286869, guid: 543dbb5ce3586aa42a0ad9992e2d1470, type: 3}
+  sprite: {fileID: 21300000, guid: b35132d1369bfbf45be179229e91b747, type: 3}

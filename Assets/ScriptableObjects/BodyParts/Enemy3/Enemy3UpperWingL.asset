@@ -10,10 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4158b3943b90bf64abe8fbc2357ca8e2, type: 3}
-  m_Name: Enemy3BackArm
+  m_Name: Enemy3UpperWingL
   m_EditorClassIdentifier: 
+  description: 
   baseHealth: 10
   baseAttack: 1
   baseDefense: 0
   baseDurability: 10
-  sprite: {fileID: 0}
+  xLocOffset: 7.95
+  yLocOffset: 2.96
+  xScaleOffset: 1
+  yScaleOffset: 1
+  sprite: {fileID: 21300000, guid: e9b3239ea0bcd934cb618fe9c3baffec, type: 3}

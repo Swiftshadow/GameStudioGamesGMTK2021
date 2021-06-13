@@ -23,6 +23,8 @@ namespace Monsters
         [SerializeField] private VoidChannel partSelectUI;
 
         [SerializeField] private VoidChannel restartBattle;
+
+        [SerializeField] private VoidChannel winGame;
         
         private readonly Queue<MONSTER_ACTIONS> actionList = new Queue<MONSTER_ACTIONS>();
 
@@ -81,6 +83,11 @@ namespace Monsters
 
         private void NextMonster()
         {
+            if (counter >= enemies.Count)
+            {
+                winGame.RaiseEvent();
+                return;
+            }
             List<BodyPartBaseSO> currentEnemy = enemies[counter];
             for(int i = 0; i < currentEnemy.Count; ++i)
             {

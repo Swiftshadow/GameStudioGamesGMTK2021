@@ -1,5 +1,24 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!95 &4695231535876864708
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6435691915850466028}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 032c8009cc6bf2f45b73097ca7547bd2, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1001 &7129488888238893844
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -168,13 +187,33 @@ PrefabInstance:
       value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 4296755024153553401, guid: 0bb45a5882db1ce408fa4c628fcf89c3, type: 3}
+      propertyPath: attachedParts.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: c06eafe3d4626b24fb3dc366ef4155c1, type: 2}
+    - target: {fileID: 4296755024153553401, guid: 0bb45a5882db1ce408fa4c628fcf89c3, type: 3}
+      propertyPath: attachedParts.Array.data[1]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4296755024153553401, guid: 0bb45a5882db1ce408fa4c628fcf89c3, type: 3}
+      propertyPath: attachedParts.Array.data[2]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4296755024153553401, guid: 0bb45a5882db1ce408fa4c628fcf89c3, type: 3}
+      propertyPath: attachedParts.Array.data[3]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4296755024153553401, guid: 0bb45a5882db1ce408fa4c628fcf89c3, type: 3}
+      propertyPath: attachedParts.Array.data[4]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4296755024153553401, guid: 0bb45a5882db1ce408fa4c628fcf89c3, type: 3}
       propertyPath: attachedParts.Array.data[5]
       value: 
-      objectReference: {fileID: 11400000, guid: f042f32058b25664895cbdfd311cd457, type: 2}
+      objectReference: {fileID: 0}
     - target: {fileID: 4296755024153553401, guid: 0bb45a5882db1ce408fa4c628fcf89c3, type: 3}
       propertyPath: attachedParts.Array.data[6]
       value: 
-      objectReference: {fileID: 11400000, guid: c57a21a4fcba09a4fa70a64f01f47b6c, type: 2}
+      objectReference: {fileID: 0}
     - target: {fileID: 4296755024358642210, guid: 0bb45a5882db1ce408fa4c628fcf89c3, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -185,3 +224,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0bb45a5882db1ce408fa4c628fcf89c3, type: 3}
+--- !u!1 &6435691915850466028 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4296755024153553400, guid: 0bb45a5882db1ce408fa4c628fcf89c3, type: 3}
+  m_PrefabInstance: {fileID: 7129488888238893844}
+  m_PrefabAsset: {fileID: 0}

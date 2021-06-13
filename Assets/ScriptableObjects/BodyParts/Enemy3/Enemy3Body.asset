@@ -12,8 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4158b3943b90bf64abe8fbc2357ca8e2, type: 3}
   m_Name: Enemy3Body
   m_EditorClassIdentifier: 
+  description: 
   baseHealth: 10
   baseAttack: 1
   baseDefense: 0
   baseDurability: 10
+  xLocOffset: 5.82
+  yLocOffset: 1.2
+  xScaleOffset: 1
+  yScaleOffset: 1
   sprite: {fileID: 21300000, guid: ec59346de53069e4b8a27be81814797a, type: 3}

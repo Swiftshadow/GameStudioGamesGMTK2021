@@ -7,7 +7,7 @@ namespace UI
 {
     public class PartSelectButtonPictures : MonoBehaviour
     {
-        [SerializeField] private int indexToGrab;
+        public int indexToGrab;
 
         [SerializeField] private IntChannel partChannel;
 

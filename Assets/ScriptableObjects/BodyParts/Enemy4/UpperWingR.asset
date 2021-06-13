@@ -10,15 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4158b3943b90bf64abe8fbc2357ca8e2, type: 3}
-  m_Name: Enemy1Body
+  m_Name: UpperWingR
   m_EditorClassIdentifier: 
   description: 
-  baseHealth: 10
-  baseAttack: 1
+  baseHealth: 0
+  baseAttack: 0
   baseDefense: 0
-  baseDurability: 10
-  xLocOffset: 5.82
-  yLocOffset: 0.44
+  baseDurability: 0
+  xLocOffset: 8.51
+  yLocOffset: 3.43
   xScaleOffset: 0
   yScaleOffset: 0
-  sprite: {fileID: 8176783654327286869, guid: 543dbb5ce3586aa42a0ad9992e2d1470, type: 3}
+  sprite: {fileID: 0}
