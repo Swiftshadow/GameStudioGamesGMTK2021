@@ -12,8 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4158b3943b90bf64abe8fbc2357ca8e2, type: 3}
   m_Name: Enemy1BackArm
   m_EditorClassIdentifier: 
-  baseHealth: 10
-  baseAttack: 1
+  description: 
+  baseHealth: 0
+  baseAttack: 0
   baseDefense: 0
-  baseDurability: 10
+  baseDurability: 0
+  xLocOffset: 0
+  yLocOffset: 0
+  xScaleOffset: 0
+  yScaleOffset: 0
   sprite: {fileID: 0}
