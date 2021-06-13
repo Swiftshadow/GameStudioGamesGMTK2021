@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Enemy2Tail
   m_EditorClassIdentifier: 
   description: 
-  baseHealth: 10
-  baseAttack: 1
+  baseHealth: 0
+  baseAttack: 0
   baseDefense: 0
   baseDurability: 10
   xLocOffset: 0
