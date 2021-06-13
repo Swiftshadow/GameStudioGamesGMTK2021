@@ -42,7 +42,7 @@ public class BattleSystem : MonoBehaviour
     [SerializeField] private VoidChannel resetEnemyAttack;
     [SerializeField] private VoidChannel resetEnemyDefense;
     [SerializeField] private VoidChannel resetEnemyHealth;
-    [SerializeField] private VoidChannel nextEnemy;
+    [SerializeField] private VoidChannel selectPart;
     
     private MonsterStats playerStats;
     private MonsterStats enemyStats;
@@ -62,7 +62,8 @@ public class BattleSystem : MonoBehaviour
     GameObject tex;
     public GameObject monsterRow;
     public GameObject scientistRow;
-    
+
+    public GameObject partSelect;
     //Set the battlestate to start and start the coroutine
     void Start()
     {
@@ -151,6 +152,7 @@ public class BattleSystem : MonoBehaviour
         scientistRow.SetActive(false);
         //monsterUnit.buffDamage(monsterUnit.damage);
         queuePlayerAction.RaiseEvent(MONSTER_ACTIONS.BUFF_ATTACK);
+        doPlayerAction.RaiseEvent();
         dialogueText.text = "Your creature grows stronger";
         yield return new WaitForSeconds(2f);
         monsterRow.SetActive(true);
@@ -166,6 +168,7 @@ public class BattleSystem : MonoBehaviour
         scientistRow.SetActive(false);
         //monsterUnit.Defend(enemyUnit.damage);//?
         queuePlayerAction.RaiseEvent(MONSTER_ACTIONS.BUFF_DEFENSE);
+        doPlayerAction.RaiseEvent();
         dialogueText.text = "Your creature beefs up";
         yield return new WaitForSeconds(2f);
         monsterRow.SetActive(true);
@@ -193,7 +196,6 @@ public class BattleSystem : MonoBehaviour
         //bool isDead = enemyUnit.TakeDamage(monsterUnit.damage);
         queuePlayerAction.RaiseEvent(MONSTER_ACTIONS.BASE_ATTACK);
         dialogueText.text = "Your monster attacks";
-        doPlayerAction.RaiseEvent();
         doPlayerAction.RaiseEvent();
         yield return new WaitForSeconds(2f);
         currState = BattleState.ENEMYTURN;
@@ -240,7 +242,8 @@ public class BattleSystem : MonoBehaviour
         {
             Debug.Log("Player won!");
             dialogueText.text = "Monster slain";
-            nextEnemy.RaiseEvent();
+            partSelect.SetActive(true);
+            selectPart.RaiseEvent();
         }
         else if (currState == BattleState.LOST)
         {

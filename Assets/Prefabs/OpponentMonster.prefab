@@ -15,6 +15,11 @@ MonoBehaviour:
   enemyQueueActionChannel: {fileID: 11400000, guid: f70527f080340ba488f10dda82543d6f, type: 2}
   enemyDoActionChannel: {fileID: 11400000, guid: ab93bf510fcc2b9498652e33a8a76981, type: 2}
   enemyBodyChange: {fileID: 11400000, guid: 85f0333a2ddbed14c950ca8ff93bfff7, type: 2}
+  partSelectInfoSend: {fileID: 11400000, guid: 36e6ac4f2e478eb4995e13b9b4b72668, type: 2}
+  partSelectUI: {fileID: 11400000, guid: 646fa0dd95af9bc41931df4931831f46, type: 2}
+  partArray:
+  - {fileID: 0}
+  - {fileID: 0}
   nextMonster: {fileID: 11400000, guid: b42a6020a66d8b9499a41210d2f4cc89, type: 2}
   enemyTwo:
   - {fileID: 11400000, guid: 9ad00005b1751c944b54b7f51ce81459, type: 2}
@@ -23,6 +28,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: fd8602dc1e58ac94cacce05fa9a7d08e, type: 2}
   - {fileID: 11400000, guid: fd8602dc1e58ac94cacce05fa9a7d08e, type: 2}
   - {fileID: 11400000, guid: 65402ef526ac3824a8c703bf6f25f6b3, type: 2}
+  enemyTwoParts:
+  - {fileID: 0}
+  - {fileID: 0}
   enemyBoss:
   - {fileID: 11400000, guid: 4c16cc8105debb94aaee67f3ed936142, type: 2}
   - {fileID: 11400000, guid: 604f100964af0124c9c9869451730c5d, type: 2}
@@ -30,6 +38,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 4757a7d576cc28544b3473af4239aa2f, type: 2}
   - {fileID: 11400000, guid: 4757a7d576cc28544b3473af4239aa2f, type: 2}
   - {fileID: 11400000, guid: 42014c5e37a4e0645bb047c1f208ef93, type: 2}
+  enemyThreeParts:
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!1001 &9089611624708272623
 PrefabInstance:
   m_ObjectHideFlags: 0
