@@ -2850,6 +2850,26 @@ PrefabInstance:
       value: PlayerMonster
       objectReference: {fileID: 0}
     - target: {fileID: 6435691915850466029, guid: 317958ac20a8f90429a08da4efd1425e, type: 3}
+      propertyPath: healValue
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6435691915850466029, guid: 317958ac20a8f90429a08da4efd1425e, type: 3}
+      propertyPath: attackBuffValue
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6435691915850466029, guid: 317958ac20a8f90429a08da4efd1425e, type: 3}
+      propertyPath: defendBuffValue
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6435691915850466029, guid: 317958ac20a8f90429a08da4efd1425e, type: 3}
+      propertyPath: riskyAttackValue
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6435691915850466029, guid: 317958ac20a8f90429a08da4efd1425e, type: 3}
+      propertyPath: riskyDefenseValue
+      value: -2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6435691915850466029, guid: 317958ac20a8f90429a08da4efd1425e, type: 3}
       propertyPath: attachedParts.Array.data[1]
       value: 
       objectReference: {fileID: 0}
@@ -2872,6 +2892,10 @@ PrefabInstance:
     - target: {fileID: 6435691915850466029, guid: 317958ac20a8f90429a08da4efd1425e, type: 3}
       propertyPath: attachedParts.Array.data[6]
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6435691915850466029, guid: 317958ac20a8f90429a08da4efd1425e, type: 3}
+      propertyPath: defensiveAttackDefBuffValue
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 6435691916535416188, guid: 317958ac20a8f90429a08da4efd1425e, type: 3}
       propertyPath: m_Size.x
