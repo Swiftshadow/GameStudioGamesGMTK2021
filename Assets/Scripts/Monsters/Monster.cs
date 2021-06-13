@@ -40,10 +40,8 @@ namespace Monsters
     /// <summary>
     /// Class for a monster. Works for both player and enemy monsters
     /// </summary>
-    public class 
-        Monster : MonoBehaviour
+    public class Monster : MonoBehaviour
     {
-        public GameObject defendShield;
         [Tooltip("Listen for a part changing")]
         [SerializeField]
         private BodyPartChannel partChangedListener;
@@ -91,7 +89,8 @@ namespace Monsters
         private VoidChannel requestStats;
 
         [SerializeField] private VoidChannel clearQueue;
-        
+
+        [SerializeField] private StringChannel changeName;
         private Animator anim;
         /// <summary>
         /// Parts currently attached to the monster.
@@ -273,19 +272,16 @@ namespace Monsters
             switch (action)
             {
                 case MONSTER_ACTIONS.BASE_ATTACK:
-                    Debug.Log("Base Attack!");
                     sendDamage.RaiseEvent(currentStats.attack);
                     anim.SetTrigger("Walk");
                     break;
                 case MONSTER_ACTIONS.SPECIAL_ATTACK:
                     Debug.Log("Special Attack!");
                     sendDamage.RaiseEvent(currentStats.attack/2);
-                    anim.SetTrigger("Walk");
                     ChangeDefense(2);
                     break;
                 case MONSTER_ACTIONS.DEFEND://show the shield icon
                     Debug.Log("Defend!");
-                    defendShield.SetActive(true);
                     ChangeDefense(5);
                     //setActive defend icon
                     break;
@@ -298,7 +294,6 @@ namespace Monsters
                 case MONSTER_ACTIONS.STALL:
                     Debug.Log("Stall!");
                     break;
-                defendShield.SetActive(false);
             }
         }
         
@@ -338,6 +333,7 @@ namespace Monsters
             resetHealth.OnEventRaised += ResetHealth;
             requestStats.OnEventRaised += RequestStats;
             clearQueue.OnEventRaised += ClearActionQueue;
+            changeName.OnEventRaised += ChangeName;
         }
 
         private void OnDisable()
@@ -354,6 +350,7 @@ namespace Monsters
             resetDefense.OnEventRaised -= ResetHealth;
             requestStats.OnEventRaised -= RequestStats;
             clearQueue.OnEventRaised -= ClearActionQueue;
+            changeName.OnEventRaised -= ChangeName;
         }
 
         private void ClearActionQueue()
@@ -366,6 +363,12 @@ namespace Monsters
             updateBattleSystem.RaiseEvent(GetCurrentStats());
         }
 
+        private void ChangeName(string obj)
+        {
+            stats.name = obj;
+            statMods.name = obj;
+        }
+        
         private void Start()
         {
             stats = CalculateStats();
