@@ -21,11 +21,11 @@ namespace Monsters
     {
         BASE_ATTACK,
         SPECIAL_ATTACK,
-        DEFEND,
         BUFF_ATTACK,
         BUFF_DEFENSE,
         STALL,
         RISK_REWARD,
+        DEFEND,
         HEAL
     }
     
