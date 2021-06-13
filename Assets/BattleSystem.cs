@@ -231,7 +231,7 @@ public class BattleSystem : MonoBehaviour
     //if not, progress back to the scientist's turn and start over
     IEnumerator EnemyTurn()
     {
-        dialogueText.text = enemyStats.name + " attacks";
+        dialogueText.text = enemyStats.name + " makes its move";
         doEnemyAction.RaiseEvent();
         yield return new WaitForSeconds(1f);
         currState = BattleState.SCIENTISTTURN;
@@ -249,7 +249,7 @@ public class BattleSystem : MonoBehaviour
             Debug.Log("Player won!");
             dialogueText.text = "Monster slain";
             partSelect.SetActive(true);
-            selectPart.RaiseEvent();
+            StartCoroutine(DelayPartSelect());
         }
         else if (currState == BattleState.LOST)
         {
@@ -258,6 +258,12 @@ public class BattleSystem : MonoBehaviour
         }
     }
 
+    private IEnumerator DelayPartSelect()
+    {
+        yield return new WaitForSeconds(0.5f);
+        selectPart.RaiseEvent();
+    }
+    
     private void OnEnable()
     {
         onPlayerDie.OnEventRaised += OnPlayerDie;
