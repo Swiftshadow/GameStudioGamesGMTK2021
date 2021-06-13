@@ -14,7 +14,8 @@ namespace UI
 
         public BodyPartBaseSO[] unlockableParts;
         
-        [SerializeField] private int partIndex;
+        [SerializeField] private int indexToGrab;
+        private int passedIndex;
         private void OnEnable()
         {
             partChannel.OnEventRaised += SetIndex;
@@ -27,14 +28,15 @@ namespace UI
 
         private void SetIndex(int obj)
         {
-            partIndex += obj;
+            passedIndex = obj;
         }
 
         public void SelectPart()
         {
             BodyPartChangeEvent change = new BodyPartChangeEvent();
-            change.newPart = unlockableParts[partIndex];
-            switch (partIndex)
+            change.newPart = unlockableParts[passedIndex + indexToGrab];
+            Debug.Log(passedIndex + indexToGrab);
+            switch (passedIndex + indexToGrab)
             {
                 case 0:
                     change.location = PART_LOCATIONS.EXTRA_1;
@@ -42,12 +44,16 @@ namespace UI
                 case 1:
                     change.location = PART_LOCATIONS.TAIL;
                     break;
-                default:
+                case 2:
+                    change.location = PART_LOCATIONS.EXTRA_3;
+                    break;
+                case 3:
                     change.location = PART_LOCATIONS.EXTRA_2;
                     break;
             }
             
             nextEnemy.RaiseEvent();
+            changePlayerPart.RaiseEvent(change);
             transform.parent.parent.gameObject.SetActive(false);
         }
     }

@@ -13,6 +13,7 @@ namespace Monsters
         BACK_ARM,
         EXTRA_1,
         EXTRA_2,
+        EXTRA_3,
         TAIL
     }
 
