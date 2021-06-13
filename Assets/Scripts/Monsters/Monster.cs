@@ -5,7 +5,7 @@ using UnityEngine.Serialization;
 
 namespace Monsters
 {
-
+     
     public enum PART_LOCATIONS
     {
         BODY,
@@ -42,6 +42,7 @@ namespace Monsters
     public class 
         Monster : MonoBehaviour
     {
+        public GameObject defendShield;
         [Tooltip("Listen for a part changing")]
         [SerializeField]
         private BodyPartChannel partChangedListener;
@@ -259,9 +260,10 @@ namespace Monsters
         /// <summary>
         /// Does the given action. If harming the enemy, triggers the event
         /// </summary>
-        public void DoAction()
+        public void DoAction()//can prolly put the icon poppy uppy in here
         {
-            MONSTER_ACTIONS action = actions.Dequeue();
+           
+           MONSTER_ACTIONS action = actions.Dequeue();
 
             MonsterStats currentStats = GetCurrentStats();
             // Defines what each action does. Not good architecture, but its a gamejam
@@ -276,9 +278,11 @@ namespace Monsters
                     sendDamage.RaiseEvent(currentStats.attack/2);
                     ChangeDefense(2);
                     break;
-                case MONSTER_ACTIONS.DEFEND:
+                case MONSTER_ACTIONS.DEFEND://show the shield icon
                     Debug.Log("Defend!");
+                    defendShield.SetActive(true);
                     ChangeDefense(5);
+                    //setActive defend icon
                     break;
                 case MONSTER_ACTIONS.BUFF_ATTACK:
                     ChangeAttack(2);
@@ -289,6 +293,7 @@ namespace Monsters
                 case MONSTER_ACTIONS.STALL:
                     Debug.Log("Stall!");
                     break;
+                defendShield.SetActive(false);
             }
         }
         
