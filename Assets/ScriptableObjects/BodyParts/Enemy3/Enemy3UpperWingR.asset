@@ -17,8 +17,8 @@ MonoBehaviour:
   baseAttack: 1
   baseDefense: 0
   baseDurability: 10
-  xLocOffset: 7.95
+  xLocOffset: 3.74
   yLocOffset: 2.96
-  xScaleOffset: 0
-  yScaleOffset: 0
-  sprite: {fileID: 0}
+  xScaleOffset: 1
+  yScaleOffset: 1
+  sprite: {fileID: 21300000, guid: 31a4eca8009bd784ba88848e41e21f66, type: 3}

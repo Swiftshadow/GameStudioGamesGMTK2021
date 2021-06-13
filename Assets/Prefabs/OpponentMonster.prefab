@@ -18,6 +18,7 @@ MonoBehaviour:
   partSelectInfoSend: {fileID: 11400000, guid: 7a4ab2309c840744fad5d5301c1c6a49, type: 2}
   partSelectUI: {fileID: 11400000, guid: 646fa0dd95af9bc41931df4931831f46, type: 2}
   restartBattle: {fileID: 11400000, guid: 6d25a77958b3f96439db3d16a680fdd4, type: 2}
+  winGame: {fileID: 0}
   partArray:
   - {fileID: 11400000, guid: 6ec620bafc7cf95418f91c4c8d9fc2f2, type: 2}
   - {fileID: 11400000, guid: c7a26c64e95bb2e45b1c01b1ce04435a, type: 2}
@@ -42,6 +43,25 @@ MonoBehaviour:
   enemyThreeParts:
   - {fileID: 11400000, guid: 874aa77f71ceed5409f666504bf318a7, type: 2}
   - {fileID: 11400000, guid: 293d1b26ac82c6949993a0d94d780dde, type: 2}
+--- !u!95 &8201666278096731719
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5009667930522343447}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ff33f40d999285e43bf4294cee209255, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1001 &9089611624708272623
 PrefabInstance:
   m_ObjectHideFlags: 0
