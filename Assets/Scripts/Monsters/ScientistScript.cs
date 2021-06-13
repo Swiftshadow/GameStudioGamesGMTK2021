@@ -20,11 +20,18 @@ public class ScientistScript : MonoBehaviour
     private void OnEnable()
     {
         doScientistAction.OnEventRaised += Bounce;
+        damageReceived.OnEventRaised += Damaged;
     }
 
     private void OnDisable()
     {
         doScientistAction.OnEventRaised -= Bounce;
+        damageReceived.OnEventRaised += Damaged;
+    }
+
+    private void Damaged(int obj)
+    {
+        anim.SetTrigger("Damaged");
     }
 
     private void Bounce()

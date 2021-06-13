@@ -507,6 +507,25 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 56d54bae1805c144eb1a3e5291523062, type: 3}
+--- !u!1 &396181484 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 426910549545817447, guid: 56d54bae1805c144eb1a3e5291523062, type: 3}
+  m_PrefabInstance: {fileID: 245976611}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &396181485
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 396181484}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69d12ae1dc694024e97638b01cc4e12e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  doScientistAction: {fileID: 11400000, guid: 54ed12c26fd93704eba43cd172ac99a3, type: 2}
+  damageReceived: {fileID: 11400000, guid: 7836bf7e78e14a34c9ada35fb8cc0ab4, type: 2}
 --- !u!1 &410167981
 GameObject:
   m_ObjectHideFlags: 0
@@ -3233,6 +3252,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: 75b24979b27ee974ebc4660d9d53307d, type: 3}
     - target: {fileID: 2069283896, guid: 25d1ef4a3aaa1c64abc7acb37cfbd46c, type: 3}
+      propertyPath: defensiveAttack
+      value: 
+      objectReference: {fileID: 21300000, guid: 75b24979b27ee974ebc4660d9d53307d, type: 3}
+    - target: {fileID: 2069283896, guid: 25d1ef4a3aaa1c64abc7acb37cfbd46c, type: 3}
       propertyPath: nextMoveIconOne
       value: 
       objectReference: {fileID: 202375608}
@@ -3243,11 +3266,11 @@ PrefabInstance:
     - target: {fileID: 2069283896, guid: 25d1ef4a3aaa1c64abc7acb37cfbd46c, type: 3}
       propertyPath: buffAttackSprite
       value: 
-      objectReference: {fileID: 21300000, guid: a6da44d22d5649c459e2525305df440a, type: 3}
+      objectReference: {fileID: 21300000, guid: a9d28a3222289914db3e53133a3831df, type: 3}
     - target: {fileID: 2069283896, guid: 25d1ef4a3aaa1c64abc7acb37cfbd46c, type: 3}
       propertyPath: buffDefenseSprite
       value: 
-      objectReference: {fileID: 21300000, guid: af151d69791e4da4aa864982e0991315, type: 3}
+      objectReference: {fileID: 21300000, guid: 6c13b8a05a3f99740a0195cd74e3133c, type: 3}
     - target: {fileID: 2069283896, guid: 25d1ef4a3aaa1c64abc7acb37cfbd46c, type: 3}
       propertyPath: actionList.Array.size
       value: 8

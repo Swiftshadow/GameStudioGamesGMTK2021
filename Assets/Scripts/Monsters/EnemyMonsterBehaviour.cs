@@ -49,6 +49,7 @@ namespace Monsters
         [SerializeField] private Sprite defendSprite;
         [SerializeField] private Sprite buffAttackSprite;
         [SerializeField] private Sprite buffDefenseSprite;
+        [SerializeField] private Sprite defensiveAttack;
         
         private List<List<BodyPartBaseSO>> enemies = new List<List<BodyPartBaseSO>>();
         private List<BodyPartBaseSO[]> parts = new List<BodyPartBaseSO[]>();
@@ -146,23 +147,18 @@ namespace Monsters
             {
                 case MONSTER_ACTIONS.BASE_ATTACK:
                     nextMoveIconOne.sprite = attackSprite;
-                    nextMoveIconTwo.sprite = null;
                     break;
                 case MONSTER_ACTIONS.SPECIAL_ATTACK:
-                    nextMoveIconOne.sprite = attackSprite;
-                    nextMoveIconTwo.sprite = buffDefenseSprite;
+                    nextMoveIconOne.sprite = defensiveAttack;
                     break;
                 case MONSTER_ACTIONS.DEFEND:
                     nextMoveIconOne.sprite = defendSprite;
-                    nextMoveIconTwo.sprite = null;
                     break;
                 case MONSTER_ACTIONS.BUFF_ATTACK:
                     nextMoveIconOne.sprite = buffAttackSprite;
-                    nextMoveIconTwo.sprite = null;
                     break;
                 case MONSTER_ACTIONS.BUFF_DEFENSE:
                     nextMoveIconOne.sprite = buffDefenseSprite;
-                    nextMoveIconTwo.sprite = null;
                     break;
                 case MONSTER_ACTIONS.STALL:
                     break;
