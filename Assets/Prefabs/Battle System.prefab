@@ -58,8 +58,17 @@ MonoBehaviour:
   onEnemyStatsUpdated: {fileID: 11400000, guid: 744028881460599458c216269f854fa3, type: 2}
   requestPlayerStats: {fileID: 11400000, guid: 33bdcc49362f67743965d0c85f7ceb03, type: 2}
   requestEnemyStats: {fileID: 11400000, guid: c10b5a8b2ddd35c4f9c679a4cb69e5e2, type: 2}
+  resetPlayerAttack: {fileID: 11400000, guid: 2bd27f7d3bae1b34ea7ba48938bb0cfe, type: 2}
+  resetPlayerDefense: {fileID: 11400000, guid: 689c175f0dfb2f64197afba572bb3200, type: 2}
+  resetPlayerHealth: {fileID: 11400000, guid: 656f9cb077ff62943926d475510f6dd6, type: 2}
+  resetEnemyAttack: {fileID: 11400000, guid: 3d1ae8a33663c1640bc08778e5e5f040, type: 2}
+  resetEnemyDefense: {fileID: 11400000, guid: a173cdebb76b0c242932506216b1e953, type: 2}
+  resetEnemyHealth: {fileID: 11400000, guid: 4885e742f012a8d4fa6dd3f24b721603, type: 2}
+  nextEnemy: {fileID: 11400000, guid: b42a6020a66d8b9499a41210d2f4cc89, type: 2}
   monsterHUD: {fileID: 0}
   enemyHUD: {fileID: 0}
   scientistHUD: {fileID: 0}
   dialogueText: {fileID: 0}
   currState: 0
+  monsterRow: {fileID: 0}
+  scientistRow: {fileID: 0}

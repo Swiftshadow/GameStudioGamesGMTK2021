@@ -87,7 +87,8 @@ namespace Monsters
 
         [SerializeField]
         private VoidChannel requestStats;
-        
+
+        [SerializeField] private VoidChannel clearQueue;
         /// <summary>
         /// Parts currently attached to the monster.
         /// 0 is body
@@ -272,11 +273,18 @@ namespace Monsters
                     break;
                 case MONSTER_ACTIONS.SPECIAL_ATTACK:
                     Debug.Log("Special Attack!");
-                    sendDamage.RaiseEvent(currentStats.attack + 5);
+                    sendDamage.RaiseEvent(currentStats.attack/2);
+                    ChangeDefense(2);
                     break;
                 case MONSTER_ACTIONS.DEFEND:
                     Debug.Log("Defend!");
                     ChangeDefense(5);
+                    break;
+                case MONSTER_ACTIONS.BUFF_ATTACK:
+                    ChangeAttack(2);
+                    break;
+                case MONSTER_ACTIONS.BUFF_DEFENSE:
+                    ChangeDefense(2);
                     break;
                 case MONSTER_ACTIONS.STALL:
                     Debug.Log("Stall!");
@@ -293,7 +301,12 @@ namespace Monsters
             int damage = obj - GetCurrentStats().defense;
             if (damage < 0)
             {
+                statMods.defense -= obj;
                 damage = 0;
+            }
+            else
+            {
+                statMods.defense = 0;
             }
             
             ChangeHealth(-damage);
@@ -314,6 +327,7 @@ namespace Monsters
             resetDefense.OnEventRaised += ResetDefense;
             resetHealth.OnEventRaised += ResetHealth;
             requestStats.OnEventRaised += RequestStats;
+            clearQueue.OnEventRaised += ClearActionQueue;
         }
 
         private void OnDisable()
@@ -329,6 +343,12 @@ namespace Monsters
             resetDefense.OnEventRaised -= ResetDefense;
             resetDefense.OnEventRaised -= ResetHealth;
             requestStats.OnEventRaised -= RequestStats;
+            clearQueue.OnEventRaised -= ClearActionQueue;
+        }
+
+        private void ClearActionQueue()
+        {
+            actions.Clear();
         }
 
         private void RequestStats()

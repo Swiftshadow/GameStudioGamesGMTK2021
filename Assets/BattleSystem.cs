@@ -42,7 +42,8 @@ public class BattleSystem : MonoBehaviour
     [SerializeField] private VoidChannel resetEnemyAttack;
     [SerializeField] private VoidChannel resetEnemyDefense;
     [SerializeField] private VoidChannel resetEnemyHealth;
-
+    [SerializeField] private VoidChannel nextEnemy;
+    
     private MonsterStats playerStats;
     private MonsterStats enemyStats;
     
@@ -97,7 +98,7 @@ public class BattleSystem : MonoBehaviour
         //Display enemy name
         requestPlayerStats.RaiseEvent();
         requestEnemyStats.RaiseEvent();
-        yield return new WaitForEndOfFrame();
+        //yield return new WaitForEndOfFrame();
         dialogueText.text = "A fearsome " + enemyStats.name + " approaches!";
 
         //set up HUD for all 3
@@ -191,9 +192,9 @@ public class BattleSystem : MonoBehaviour
         tex.SetActive(true);
         //bool isDead = enemyUnit.TakeDamage(monsterUnit.damage);
         queuePlayerAction.RaiseEvent(MONSTER_ACTIONS.BASE_ATTACK);
+        dialogueText.text = "Your monster attacks";
         doPlayerAction.RaiseEvent();
         doPlayerAction.RaiseEvent();
-        dialogueText.text = "Success";
         yield return new WaitForSeconds(2f);
         currState = BattleState.ENEMYTURN;
         StartCoroutine(EnemyTurn());
@@ -222,8 +223,8 @@ public class BattleSystem : MonoBehaviour
     //if not, progress back to the scientist's turn and start over
     IEnumerator EnemyTurn()
     {
-        doEnemyAction.RaiseEvent();
         dialogueText.text = enemyStats.name + " attacks";
+        doEnemyAction.RaiseEvent();
         yield return new WaitForSeconds(1f);
         currState = BattleState.SCIENTISTTURN;
         ScientistTurn();
@@ -239,6 +240,7 @@ public class BattleSystem : MonoBehaviour
         {
             Debug.Log("Player won!");
             dialogueText.text = "Monster slain";
+            nextEnemy.RaiseEvent();
         }
         else if (currState == BattleState.LOST)
         {

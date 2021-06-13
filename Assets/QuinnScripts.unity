@@ -1263,8 +1263,10 @@ MonoBehaviour:
   monsterHUD: {fileID: 875335793}
   enemyHUD: {fileID: 44074508}
   scientistHUD: {fileID: 1619259509}
-  dialogueText: {fileID: 1108957872}
+  dialogueText: {fileID: 0}
   currState: 0
+  monsterRow: {fileID: 0}
+  scientistRow: {fileID: 0}
 --- !u!4 &783290813
 Transform:
   m_ObjectHideFlags: 0
