@@ -24,7 +24,9 @@ namespace Monsters
         DEFEND,
         BUFF_ATTACK,
         BUFF_DEFENSE,
-        STALL
+        STALL,
+        RISK_REWARD,
+        HEAL
     }
     
     [System.Serializable]
@@ -91,6 +93,10 @@ namespace Monsters
         [SerializeField] private VoidChannel clearQueue;
 
         [SerializeField] private StringChannel changeName;
+
+        [SerializeField] private GameObject attackBuffIcon;
+        [SerializeField] private GameObject defendBuffIcon;
+        
         private Animator anim;
         /// <summary>
         /// Parts currently attached to the monster.
@@ -223,6 +229,7 @@ namespace Monsters
         public void ChangeAttack(int amount)
         {
             statMods.attack += amount;
+            attackBuffIcon.SetActive(true);
         }
 
         /// <summary>
@@ -231,6 +238,7 @@ namespace Monsters
         public void ResetAttack()
         {
             statMods.attack = 0;
+            attackBuffIcon.SetActive(false);
         }
         
         /// <summary>
@@ -240,6 +248,7 @@ namespace Monsters
         public void ChangeDefense(int amount)
         {
             statMods.defense += amount;
+            defendBuffIcon.SetActive(true);
         }
 
         /// <summary>
@@ -248,6 +257,7 @@ namespace Monsters
         public void ResetDefense()
         {
             statMods.defense = 0;
+            defendBuffIcon.SetActive(false);
         }
         
         /// <summary>
@@ -278,6 +288,7 @@ namespace Monsters
                 case MONSTER_ACTIONS.SPECIAL_ATTACK:
                     Debug.Log("Special Attack!");
                     sendDamage.RaiseEvent(currentStats.attack/2);
+                    anim.SetTrigger("Walk");
                     ChangeDefense(2);
                     break;
                 case MONSTER_ACTIONS.DEFEND://show the shield icon
@@ -290,6 +301,15 @@ namespace Monsters
                     break;
                 case MONSTER_ACTIONS.BUFF_DEFENSE:
                     ChangeDefense(2);
+                    break;
+                case MONSTER_ACTIONS.HEAL:
+                    ChangeHealth(2);
+                    break;
+                case MONSTER_ACTIONS.RISK_REWARD:
+                    ChangeAttack(5);
+                    ChangeDefense(-3);
+                    sendDamage.RaiseEvent(GetCurrentStats().attack);
+                    anim.SetTrigger("Walk");
                     break;
                 case MONSTER_ACTIONS.STALL:
                     Debug.Log("Stall!");
