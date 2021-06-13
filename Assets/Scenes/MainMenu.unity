@@ -2468,7 +2468,7 @@ Camera:
   m_GameObject: {fileID: 1068525119}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 1
+  m_ClearFlags: 4
   m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
@@ -4225,6 +4225,34 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5945765715457632779, guid: b735b33028f6a1e4aa725b0ac4debf7f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5945765715457632779, guid: b735b33028f6a1e4aa725b0ac4debf7f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5945765715457632779, guid: b735b33028f6a1e4aa725b0ac4debf7f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1787824751}
+    - target: {fileID: 5945765715457632779, guid: b735b33028f6a1e4aa725b0ac4debf7f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5945765715457632779, guid: b735b33028f6a1e4aa725b0ac4debf7f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: LoadGame
+      objectReference: {fileID: 0}
+    - target: {fileID: 5945765715457632779, guid: b735b33028f6a1e4aa725b0ac4debf7f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: MainMenuScript, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 5945765715457632779, guid: b735b33028f6a1e4aa725b0ac4debf7f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b735b33028f6a1e4aa725b0ac4debf7f, type: 3}
 --- !u!1001 &8488731905390455989
@@ -4234,6 +4262,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1787824750}
     m_Modifications:
+    - target: {fileID: 1253486012337988168, guid: b731f85036aa6ee429e0385a7b05203c, type: 3}
+      propertyPath: m_Color.a
+      value: 0.49019608
+      objectReference: {fileID: 0}
     - target: {fileID: 1681874665506431318, guid: b731f85036aa6ee429e0385a7b05203c, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -4264,11 +4296,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1681874665506431318, guid: b731f85036aa6ee429e0385a7b05203c, type: 3}
       propertyPath: m_SizeDelta.x
-      value: -400
+      value: -600
       objectReference: {fileID: 0}
     - target: {fileID: 1681874665506431318, guid: b731f85036aa6ee429e0385a7b05203c, type: 3}
       propertyPath: m_SizeDelta.y
-      value: -520
+      value: -450
       objectReference: {fileID: 0}
     - target: {fileID: 1681874665506431318, guid: b731f85036aa6ee429e0385a7b05203c, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4304,7 +4336,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1681874665506431318, guid: b731f85036aa6ee429e0385a7b05203c, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -240
+      value: -205
       objectReference: {fileID: 0}
     - target: {fileID: 1681874665506431318, guid: b731f85036aa6ee429e0385a7b05203c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
