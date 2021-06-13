@@ -163,12 +163,8 @@ public class BattleSystem : MonoBehaviour
         //monsterUnit.buffDamage(monsterUnit.damage);
         queuePlayerAction.RaiseEvent(MONSTER_ACTIONS.BUFF_ATTACK);
         doPlayerAction.RaiseEvent();
-<<<<<<< Updated upstream
-        dialogueText.text = "Your creature grows stronger!";
-=======
         dialogueText.text = "Your creature grows stronger";
         buffNoise.Play();
->>>>>>> Stashed changes
         yield return new WaitForSeconds(2f);
         monsterRow.SetActive(true);
         tex.SetActive(false);
@@ -184,12 +180,8 @@ public class BattleSystem : MonoBehaviour
         //monsterUnit.Defend(enemyUnit.damage);//?
         queuePlayerAction.RaiseEvent(MONSTER_ACTIONS.BUFF_DEFENSE);
         doPlayerAction.RaiseEvent();
-<<<<<<< Updated upstream
-        dialogueText.text = "Your creature beefs up!";
-=======
         dialogueText.text = "Your creature beefs up";
         buffNoise.Play();
->>>>>>> Stashed changes
         yield return new WaitForSeconds(2f);
         monsterRow.SetActive(true);
         tex.SetActive(false);
@@ -215,12 +207,8 @@ public class BattleSystem : MonoBehaviour
         tex.SetActive(true);
         //bool isDead = enemyUnit.TakeDamage(monsterUnit.damage);
         queuePlayerAction.RaiseEvent(MONSTER_ACTIONS.BASE_ATTACK);
-<<<<<<< Updated upstream
-        dialogueText.text = "Your monster attacks!";
-=======
         dialogueText.text = "Your monster attacks";
         monsterAttack.Play();
->>>>>>> Stashed changes
         doPlayerAction.RaiseEvent();
         yield return new WaitForSeconds(2f);
         currState = BattleState.ENEMYTURN;
