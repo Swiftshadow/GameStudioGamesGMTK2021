@@ -42,6 +42,13 @@ namespace Monsters
         [SerializeField] private BodyPartBaseSO[] enemyThreeParts = new BodyPartBaseSO[2];
 
         [SerializeField] private string[] monsterNames;
+
+        [SerializeField] private SpriteRenderer nextMoveIconOne;
+        [SerializeField] private SpriteRenderer nextMoveIconTwo;
+        [SerializeField] private Sprite attackSprite;
+        [SerializeField] private Sprite defendSprite;
+        [SerializeField] private Sprite buffAttackSprite;
+        [SerializeField] private Sprite buffDefenseSprite;
         
         private List<List<BodyPartBaseSO>> enemies = new List<List<BodyPartBaseSO>>();
         private List<BodyPartBaseSO[]> parts = new List<BodyPartBaseSO[]>();
@@ -87,7 +94,7 @@ namespace Monsters
 
         private void NextMonster()
         {
-            if (counter >= enemies.Count)
+            if (counter >= enemies.Count - 1)
             {
                 winGame.RaiseEvent();
                 return;
@@ -129,6 +136,40 @@ namespace Monsters
             parts.Add(enemyTwoParts);
             parts.Add(enemyThreeParts);
         }
-        
+
+
+        private void ShowIcon()
+        {
+            MONSTER_ACTIONS action = actionList.Peek();
+            switch (action)
+            {
+                case MONSTER_ACTIONS.BASE_ATTACK:
+                    nextMoveIconOne.sprite = attackSprite;
+                    nextMoveIconTwo.sprite = null;
+                    break;
+                case MONSTER_ACTIONS.SPECIAL_ATTACK:
+                    nextMoveIconOne.sprite = attackSprite;
+                    nextMoveIconTwo.sprite = buffDefenseSprite;
+                    break;
+                case MONSTER_ACTIONS.DEFEND:
+                    nextMoveIconOne.sprite = defendSprite;
+                    nextMoveIconTwo.sprite = null;
+                    break;
+                case MONSTER_ACTIONS.BUFF_ATTACK:
+                    nextMoveIconOne.sprite = buffAttackSprite;
+                    nextMoveIconTwo.sprite = null;
+                    break;
+                case MONSTER_ACTIONS.BUFF_DEFENSE:
+                    nextMoveIconOne.sprite = buffDefenseSprite;
+                    nextMoveIconTwo.sprite = null;
+                    break;
+                case MONSTER_ACTIONS.STALL:
+                    break;
+                case MONSTER_ACTIONS.HEAL:
+                    break;
+                case MONSTER_ACTIONS.RISK_REWARD:
+                    break;
+            }
+        }
     }
 }
