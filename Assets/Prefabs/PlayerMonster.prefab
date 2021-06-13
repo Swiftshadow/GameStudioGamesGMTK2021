@@ -76,6 +76,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: aae2054c7899d4346a86828d38faa5ac, type: 2}
     - target: {fileID: 4296755024153553401, guid: 0bb45a5882db1ce408fa4c628fcf89c3, type: 3}
+      propertyPath: clearQueue
+      value: 
+      objectReference: {fileID: 11400000, guid: 733737e82a1aaa645bd7c5fb423a4512, type: 2}
+    - target: {fileID: 4296755024153553401, guid: 0bb45a5882db1ce408fa4c628fcf89c3, type: 3}
       propertyPath: sendDamage
       value: 
       objectReference: {fileID: 11400000, guid: 4273b60d6c3558c45a2e90ec79b7cea4, type: 2}
