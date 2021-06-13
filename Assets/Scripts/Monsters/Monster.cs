@@ -91,6 +91,8 @@ namespace Monsters
         private VoidChannel requestStats;
 
         [SerializeField] private VoidChannel clearQueue;
+        
+        private Animator anim;
         /// <summary>
         /// Parts currently attached to the monster.
         /// 0 is body
@@ -273,10 +275,12 @@ namespace Monsters
                 case MONSTER_ACTIONS.BASE_ATTACK:
                     Debug.Log("Base Attack!");
                     sendDamage.RaiseEvent(currentStats.attack);
+                    anim.SetTrigger("Walk");
                     break;
                 case MONSTER_ACTIONS.SPECIAL_ATTACK:
                     Debug.Log("Special Attack!");
                     sendDamage.RaiseEvent(currentStats.attack/2);
+                    anim.SetTrigger("Walk");
                     ChangeDefense(2);
                     break;
                 case MONSTER_ACTIONS.DEFEND://show the shield icon
@@ -314,7 +318,7 @@ namespace Monsters
             {
                 statMods.defense = 0;
             }
-            
+            anim.SetTrigger("Damaged");
             ChangeHealth(-damage);
             MonsterStats newStats = GetCurrentStats();
             updateBattleSystem.RaiseEvent(newStats);
@@ -365,6 +369,7 @@ namespace Monsters
         private void Start()
         {
             stats = CalculateStats();
+            anim = gameObject.GetComponent<Animator>();
         }
     }
 }
