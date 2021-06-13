@@ -1990,7 +1990,7 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1088297858}
+      - m_Target: {fileID: 1787824752}
         m_TargetAssemblyTypeName: Volume, Assembly-CSharp
         m_MethodName: SetSFX
         m_Mode: 0
@@ -2552,20 +2552,6 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
---- !u!114 &1088297858
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1088297855}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 91fecb1d6e18fa64694cff05b4e4c0ce, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  volumeMenu: {fileID: 1088297855}
-  volumeText: {fileID: 866894435}
 --- !u!1 &1136947945
 GameObject:
   m_ObjectHideFlags: 0
@@ -3551,6 +3537,7 @@ GameObject:
   - component: {fileID: 1787824748}
   - component: {fileID: 1787824747}
   - component: {fileID: 1787824751}
+  - component: {fileID: 1787824752}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -3654,6 +3641,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fba764a282cb40b4ab5b7883d282f655, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1787824752
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1787824746}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91fecb1d6e18fa64694cff05b4e4c0ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  volumeMenu: {fileID: 1088297855}
+  volumeText: {fileID: 866894435}
 --- !u!1 &1808198902
 GameObject:
   m_ObjectHideFlags: 0
