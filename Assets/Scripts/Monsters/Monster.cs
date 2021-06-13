@@ -96,6 +96,13 @@ namespace Monsters
 
         [SerializeField] private GameObject attackBuffIcon;
         [SerializeField] private GameObject defendBuffIcon;
+
+        [SerializeField] private int attackBuffValue;
+        [SerializeField] private int defendBuffValue;
+        [SerializeField] private int healValue;
+        [SerializeField] private int defensiveAttackDefBuffValue;
+        [SerializeField] private int riskyAttackValue;
+        [SerializeField] private int riskyDefenseValue;
         
         private Animator anim;
         /// <summary>
@@ -289,25 +296,25 @@ namespace Monsters
                     Debug.Log("Special Attack!");
                     sendDamage.RaiseEvent(currentStats.attack/2);
                     anim.SetTrigger("Walk");
-                    ChangeDefense(2);
+                    ChangeDefense(defensiveAttackDefBuffValue);
                     break;
                 case MONSTER_ACTIONS.DEFEND://show the shield icon
                     Debug.Log("Defend!");
-                    ChangeDefense(5);
+                    ChangeDefense(defendBuffValue);
                     //setActive defend icon
                     break;
                 case MONSTER_ACTIONS.BUFF_ATTACK:
-                    ChangeAttack(2);
+                    ChangeAttack(attackBuffValue);
                     break;
                 case MONSTER_ACTIONS.BUFF_DEFENSE:
-                    ChangeDefense(2);
+                    ChangeDefense(defendBuffValue);
                     break;
                 case MONSTER_ACTIONS.HEAL:
-                    ChangeHealth(2);
+                    ChangeHealth(healValue);
                     break;
                 case MONSTER_ACTIONS.RISK_REWARD:
-                    ChangeAttack(5);
-                    ChangeDefense(-3);
+                    ChangeAttack(riskyAttackValue);
+                    ChangeDefense(riskyDefenseValue);
                     sendDamage.RaiseEvent(GetCurrentStats().attack);
                     anim.SetTrigger("Walk");
                     break;
