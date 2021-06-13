@@ -3273,7 +3273,7 @@ PrefabInstance:
       objectReference: {fileID: 21300000, guid: 6c13b8a05a3f99740a0195cd74e3133c, type: 3}
     - target: {fileID: 2069283896, guid: 25d1ef4a3aaa1c64abc7acb37cfbd46c, type: 3}
       propertyPath: actionList.Array.size
-      value: 8
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5009667929551258000, guid: 25d1ef4a3aaa1c64abc7acb37cfbd46c, type: 3}
       propertyPath: m_Size.x
@@ -3338,6 +3338,26 @@ PrefabInstance:
     - target: {fileID: 5009667930122608519, guid: 25d1ef4a3aaa1c64abc7acb37cfbd46c, type: 3}
       propertyPath: m_SortingOrder
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5009667930522343446, guid: 25d1ef4a3aaa1c64abc7acb37cfbd46c, type: 3}
+      propertyPath: attackBuffValue
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5009667930522343446, guid: 25d1ef4a3aaa1c64abc7acb37cfbd46c, type: 3}
+      propertyPath: defendBuffValue
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5009667930522343446, guid: 25d1ef4a3aaa1c64abc7acb37cfbd46c, type: 3}
+      propertyPath: riskyAttackValue
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 5009667930522343446, guid: 25d1ef4a3aaa1c64abc7acb37cfbd46c, type: 3}
+      propertyPath: riskyDefenseValue
+      value: -2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5009667930522343446, guid: 25d1ef4a3aaa1c64abc7acb37cfbd46c, type: 3}
+      propertyPath: defensiveAttackDefBuffValue
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5009667930522343447, guid: 25d1ef4a3aaa1c64abc7acb37cfbd46c, type: 3}
       propertyPath: m_Name

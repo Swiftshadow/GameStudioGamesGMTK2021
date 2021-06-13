@@ -132,7 +132,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1406007339979068993, guid: 536e6393b3d1a8e42a428d17108780d8, type: 3}
       propertyPath: m_text
-      value: RIsky Attack
+      value: Risky Attack
       objectReference: {fileID: 0}
     - target: {fileID: 1406007339979068993, guid: 536e6393b3d1a8e42a428d17108780d8, type: 3}
       propertyPath: m_fontSize

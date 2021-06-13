@@ -12,11 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4158b3943b90bf64abe8fbc2357ca8e2, type: 3}
   m_Name: Enemy1Obj2
   m_EditorClassIdentifier: 
-  description: Bulky Tail! Increase your attack, but you are a bigger targer, and
-    take more damage
-  baseHealth: 2
-  baseAttack: 5
-  baseDefense: 0
+  description: Bulky Tail! Increase your defense!
+  baseHealth: 0
+  baseAttack: 0
+  baseDefense: 5
   baseDurability: 0
   xLocOffset: 0
   yLocOffset: 0

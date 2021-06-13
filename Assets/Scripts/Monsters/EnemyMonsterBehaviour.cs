@@ -28,7 +28,8 @@ namespace Monsters
 
         [SerializeField] private StringChannel changeNameChannel;
         
-        private readonly Queue<MONSTER_ACTIONS> actionList = new Queue<MONSTER_ACTIONS>();
+        [SerializeField]
+        private List<MONSTER_ACTIONS> actionList = new List<MONSTER_ACTIONS>();
 
         [SerializeField]
         private BodyPartBaseSO[] partArray = new BodyPartBaseSO[2];
@@ -58,14 +59,14 @@ namespace Monsters
         private void GenerateAction()
         {
             MONSTER_ACTIONS newAction = (MONSTER_ACTIONS)Random.Range(0, (int) MONSTER_ACTIONS.STALL);
-            actionList.Enqueue(newAction);
+            actionList.Add(newAction);
             enemyQueueActionChannel.RaiseEvent(newAction);
         }
 
         public void DoAction()
         {
             //enemyDoActionChannel.RaiseEvent();
-            actionList.Dequeue();
+            actionList.RemoveAt(0);
             if (actionList.Count <= 2)
             {
                 GenerateAction();
@@ -142,7 +143,7 @@ namespace Monsters
 
         private void ShowIcon()
         {
-            MONSTER_ACTIONS action = actionList.Peek();
+            MONSTER_ACTIONS action = actionList[0];
             switch (action)
             {
                 case MONSTER_ACTIONS.BASE_ATTACK:

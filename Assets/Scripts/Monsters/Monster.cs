@@ -215,6 +215,7 @@ namespace Monsters
         {
             statMods.health += amount;
 
+            updateBattleSystem.RaiseEvent(GetCurrentStats());
             if (stats.health + statMods.health <= 0)
             {
                 onDie.RaiseEvent();
