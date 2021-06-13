@@ -297,7 +297,7 @@ public class BattleSystem : MonoBehaviour
             ++unlockedButtonsCount;
             if (unlockedButtonsCount >= 2)
             {
-                return;
+                //return;
             }
             
             StartCoroutine(DelayPartSelect());
@@ -311,6 +311,7 @@ public class BattleSystem : MonoBehaviour
 
     private IEnumerator DelayPartSelect()
     {
+        Debug.Log("Calling Part Select");
         yield return new WaitForSeconds(0.5f);
         selectPart.RaiseEvent();
     }

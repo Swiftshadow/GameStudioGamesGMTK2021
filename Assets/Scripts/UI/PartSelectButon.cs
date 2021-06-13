@@ -26,11 +26,13 @@ namespace UI
 
         private void SetIndex(int obj)
         {
+            Debug.Log("Setting index!");
             passedIndex = obj;
         }
 
         public void SelectPart()
         {
+            Debug.Log("Button Part Select");
             BodyPartChangeEvent change = new BodyPartChangeEvent();
             int indexToGrab = transform.GetChild(0)
                 .GetComponent<PartSelectButtonPictures>().indexToGrab - 1;
