@@ -16,16 +16,26 @@ namespace Monsters
 
         [SerializeField]
         private BodyPartChannel enemyBodyChange;
+
+        [SerializeField] private BodyPartArrayChannel partSelectInfoSend;
+
+        [SerializeField] private VoidChannel partSelectUI;
         
         private readonly Queue<MONSTER_ACTIONS> actionList = new Queue<MONSTER_ACTIONS>();
 
+        [SerializeField]
+        private BodyPartBaseSO[] partArray = new BodyPartBaseSO[2];
+        
         [SerializeField] private VoidChannel nextMonster;
 
         [SerializeField] private List<BodyPartBaseSO> enemyTwo = new List<BodyPartBaseSO>();
+        [SerializeField] private BodyPartBaseSO[] enemyTwoParts = new BodyPartBaseSO[2];
 
         [SerializeField] private List<BodyPartBaseSO> enemyBoss = new List<BodyPartBaseSO>();
+        [SerializeField] private BodyPartBaseSO[] enemyThreeParts = new BodyPartBaseSO[2];
 
         private List<List<BodyPartBaseSO>> enemies = new List<List<BodyPartBaseSO>>();
+        private BodyPartBaseSO[][] parts = new BodyPartBaseSO[2][];
 
         private int counter = 0;
         private void GenerateAction()
@@ -50,12 +60,20 @@ namespace Monsters
         {
             nextMonster.OnEventRaised += NextMonster;
             enemyDoActionChannel.OnEventRaised += DoAction;
+            partSelectUI.OnEventRaised += SendPartInfo;
         }
 
         private void OnDisable()
         {
             nextMonster.OnEventRaised -= NextMonster;
             enemyDoActionChannel.OnEventRaised -= DoAction;
+            partSelectUI.OnEventRaised -= SendPartInfo;
+        }
+
+        private void SendPartInfo()
+        {
+            Debug.Log("Sending part info!");
+            partSelectInfoSend.RaiseEvent(parts[counter]);
         }
 
         private void NextMonster()
@@ -83,6 +101,8 @@ namespace Monsters
             
             enemies.Add(enemyTwo);
             enemies.Add(enemyBoss);
+            parts[0] = enemyTwoParts;
+            parts[1] = enemyThreeParts;
         }
         
     }

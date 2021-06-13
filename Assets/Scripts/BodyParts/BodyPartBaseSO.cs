@@ -5,6 +5,8 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "New Body Part", menuName = "Body/Body Part")]
 public class BodyPartBaseSO : ScriptableObject
 {
+    public string description;
+    
     [SerializeField]
     private int baseHealth;
     private int healthMod;

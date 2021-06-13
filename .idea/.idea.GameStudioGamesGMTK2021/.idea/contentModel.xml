@@ -104,6 +104,7 @@
           </e>
           <e p="Channels" t="Include">
             <e p="BaseChannel.cs" t="Include" />
+            <e p="BodyPartArrayChannel.cs" t="Include" />
             <e p="BodyPartChannel.cs" t="Include" />
             <e p="IntChannel.cs" t="Include" />
             <e p="MonsterActionChannel.cs" t="Include" />
@@ -125,6 +126,7 @@
             <e p="LoadBattle.cs" t="Include" />
             <e p="MainMenuBehaviour.cs" t="Include" />
             <e p="MainMenuScript.cs" t="Include" />
+            <e p="PartSelectButtonPictures.cs" t="Include" />
           </e>
         </e>
         <e p="TextMesh Pro" t="Include">
