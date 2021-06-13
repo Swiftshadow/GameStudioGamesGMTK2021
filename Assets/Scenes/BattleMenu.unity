@@ -1691,7 +1691,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   indexToGrab: 1
-  partChannel: {fileID: 11400000, guid: 36e6ac4f2e478eb4995e13b9b4b72668, type: 2}
+  partChannel: {fileID: 11400000, guid: 7a4ab2309c840744fad5d5301c1c6a49, type: 2}
 --- !u!1001 &726697001
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1868,7 +1868,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   indexToGrab: 0
-  partChannel: {fileID: 11400000, guid: 36e6ac4f2e478eb4995e13b9b4b72668, type: 2}
+  partChannel: {fileID: 11400000, guid: 7a4ab2309c840744fad5d5301c1c6a49, type: 2}
 --- !u!1 &802003707
 GameObject:
   m_ObjectHideFlags: 0

@@ -123,6 +123,7 @@
             <e p="Unit.cs" t="Include" />
           </e>
           <e p="UI" t="Include">
+            <e p="HoverBehaviour.cs" t="Include" />
             <e p="LoadBattle.cs" t="Include" />
             <e p="MainMenuBehaviour.cs" t="Include" />
             <e p="MainMenuScript.cs" t="Include" />
