@@ -27,7 +27,7 @@ namespace Monsters
 
         private List<List<BodyPartBaseSO>> enemies = new List<List<BodyPartBaseSO>>();
 
-        private int counter = 1;
+        private int counter = 0;
         private void GenerateAction()
         {
             MONSTER_ACTIONS newAction = (MONSTER_ACTIONS)Random.Range(0, (int) MONSTER_ACTIONS.STALL);
