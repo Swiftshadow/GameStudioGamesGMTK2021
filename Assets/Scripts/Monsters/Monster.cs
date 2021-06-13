@@ -96,7 +96,8 @@ namespace Monsters
 
         [SerializeField] private GameObject attackBuffIcon;
         [SerializeField] private GameObject defendBuffIcon;
-
+        [SerializeField] private GameObject brokenShieldIcon;
+        
         [SerializeField] private int attackBuffValue;
         [SerializeField] private int defendBuffValue;
         [SerializeField] private int healValue;
@@ -256,7 +257,14 @@ namespace Monsters
         public void ChangeDefense(int amount)
         {
             statMods.defense += amount;
-            defendBuffIcon.SetActive(true);
+            if (statMods.defense >= 0)
+            {
+                defendBuffIcon.SetActive(true);
+            }
+            else
+            {
+                brokenShieldIcon.SetActive(false);
+            }
         }
 
         /// <summary>
