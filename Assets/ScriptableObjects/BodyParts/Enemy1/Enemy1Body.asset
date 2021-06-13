@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   description: 
   baseHealth: 50
-  baseAttack: 10
+  baseAttack: 15
   baseDefense: 8
   baseDurability: 10
   xLocOffset: 5.82

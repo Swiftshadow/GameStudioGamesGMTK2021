@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: Enemy2Body
   m_EditorClassIdentifier: 
   description: 
-  baseHealth: 70
+  baseHealth: 65
   baseAttack: 20
-  baseDefense: 10
+  baseDefense: 8
   baseDurability: 10
   xLocOffset: 5.82
   yLocOffset: -2.2
