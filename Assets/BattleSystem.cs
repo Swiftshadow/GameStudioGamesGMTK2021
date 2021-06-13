@@ -146,10 +146,14 @@ public class BattleSystem : MonoBehaviour
     //Then progresses to the monster's turn
     IEnumerator MonsterAttackBuff()
     {
+        tex.SetActive(true);
+        scientistRow.SetActive(false);
         //monsterUnit.buffDamage(monsterUnit.damage);
         queuePlayerAction.RaiseEvent(MONSTER_ACTIONS.BUFF_ATTACK);
         dialogueText.text = "Your creature grows stronger";
         yield return new WaitForSeconds(2f);
+        monsterRow.SetActive(true);
+        tex.SetActive(false);
         dialogueText.text = "Select your monster's move";
         currState = BattleState.MONSTERTURN;
     }
@@ -157,10 +161,14 @@ public class BattleSystem : MonoBehaviour
     //Then progresses to the monster's turn
     IEnumerator MonsterDefenseBuff()
     {
+        tex.SetActive(true);
+        scientistRow.SetActive(false);
         //monsterUnit.Defend(enemyUnit.damage);//?
         queuePlayerAction.RaiseEvent(MONSTER_ACTIONS.BUFF_DEFENSE);
         dialogueText.text = "Your creature beefs up";
         yield return new WaitForSeconds(2f);
+        monsterRow.SetActive(true);
+        tex.SetActive(false);
         dialogueText.text = "Select your monster's move";
         currState = BattleState.MONSTERTURN;
     }
@@ -179,6 +187,8 @@ public class BattleSystem : MonoBehaviour
     //Then checks if the enemy's dead-if so, end the round, if not, progress to enemy's turn
     IEnumerator MonsterAttack()
     {
+        monsterRow.SetActive(false);
+        tex.SetActive(true);
         //bool isDead = enemyUnit.TakeDamage(monsterUnit.damage);
         queuePlayerAction.RaiseEvent(MONSTER_ACTIONS.BASE_ATTACK);
         doPlayerAction.RaiseEvent();

@@ -1679,6 +1679,30 @@ PrefabInstance:
       propertyPath: scientistRow
       value: 
       objectReference: {fileID: 2077907544}
+    - target: {fileID: 9074188961590106578, guid: 6f5596d296aebd345b13d9f48f7a7008, type: 3}
+      propertyPath: resetEnemyAttack
+      value: 
+      objectReference: {fileID: 11400000, guid: 3d1ae8a33663c1640bc08778e5e5f040, type: 2}
+    - target: {fileID: 9074188961590106578, guid: 6f5596d296aebd345b13d9f48f7a7008, type: 3}
+      propertyPath: resetEnemyHealth
+      value: 
+      objectReference: {fileID: 11400000, guid: 4885e742f012a8d4fa6dd3f24b721603, type: 2}
+    - target: {fileID: 9074188961590106578, guid: 6f5596d296aebd345b13d9f48f7a7008, type: 3}
+      propertyPath: resetEnemyDefense
+      value: 
+      objectReference: {fileID: 11400000, guid: a173cdebb76b0c242932506216b1e953, type: 2}
+    - target: {fileID: 9074188961590106578, guid: 6f5596d296aebd345b13d9f48f7a7008, type: 3}
+      propertyPath: resetPlayerAttack
+      value: 
+      objectReference: {fileID: 11400000, guid: 2bd27f7d3bae1b34ea7ba48938bb0cfe, type: 2}
+    - target: {fileID: 9074188961590106578, guid: 6f5596d296aebd345b13d9f48f7a7008, type: 3}
+      propertyPath: resetPlayerHealth
+      value: 
+      objectReference: {fileID: 11400000, guid: 656f9cb077ff62943926d475510f6dd6, type: 2}
+    - target: {fileID: 9074188961590106578, guid: 6f5596d296aebd345b13d9f48f7a7008, type: 3}
+      propertyPath: resetPlayerDefense
+      value: 
+      objectReference: {fileID: 11400000, guid: 689c175f0dfb2f64197afba572bb3200, type: 2}
     - target: {fileID: 9074188961590106579, guid: 6f5596d296aebd345b13d9f48f7a7008, type: 3}
       propertyPath: m_RootOrder
       value: 3
