@@ -17,4 +17,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/BattleMenu.unity
     guid: ebd079e9e7ce33a4c947846e488bd8b3
+  - enabled: 1
+    path: Assets/Scenes/WinLoseUI.unity
+    guid: 3f593c1a3a7b9014ab95b958912236cd
+  - enabled: 1
+    path: Assets/Scenes/Lose.unity
+    guid: b139bf7305d1dda439c47764c05274cf
+  - enabled: 1
+    path: Assets/Scenes/Win Scene.unity
+    guid: c216d710bf083d8448c392fa9e8eefbb
   m_configObjects: {}
