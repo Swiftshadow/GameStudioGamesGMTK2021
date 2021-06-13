@@ -69,6 +69,7 @@ namespace Monsters
             {
                 GenerateAction();
             }
+            ShowIcon();
 
         }
 
@@ -130,7 +131,7 @@ namespace Monsters
             {
                 enemyQueueActionChannel.RaiseEvent(monsterAction);
             }
-            
+            ShowIcon();
             enemies.Add(enemyTwo);
             enemies.Add(enemyBoss);
             parts.Add(enemyTwoParts);
