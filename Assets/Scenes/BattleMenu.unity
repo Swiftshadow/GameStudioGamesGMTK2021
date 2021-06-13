@@ -1516,11 +1516,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1406007339979068993, guid: 536e6393b3d1a8e42a428d17108780d8, type: 3}
       propertyPath: m_text
-      value: Image 2
+      value: <sprite=3>
       objectReference: {fileID: 0}
     - target: {fileID: 1406007339979068993, guid: 536e6393b3d1a8e42a428d17108780d8, type: 3}
       propertyPath: m_fontSize
-      value: 35
+      value: 177.2
       objectReference: {fileID: 0}
     - target: {fileID: 1406007339979068993, guid: 536e6393b3d1a8e42a428d17108780d8, type: 3}
       propertyPath: m_fontAsset
@@ -1529,10 +1529,10 @@ PrefabInstance:
     - target: {fileID: 1406007339979068993, guid: 536e6393b3d1a8e42a428d17108780d8, type: 3}
       propertyPath: m_spriteAsset
       value: 
-      objectReference: {fileID: 11400000, guid: 7a643254020db3140a64ac57124f4df2, type: 2}
+      objectReference: {fileID: 11400000, guid: f8da6bc8320cad548b3b6bb52a0e4c9c, type: 2}
     - target: {fileID: 1406007339979068993, guid: 536e6393b3d1a8e42a428d17108780d8, type: 3}
       propertyPath: m_fontSizeBase
-      value: 35
+      value: 177.2
       objectReference: {fileID: 0}
     - target: {fileID: 1406007339979068993, guid: 536e6393b3d1a8e42a428d17108780d8, type: 3}
       propertyPath: m_sharedMaterial
@@ -1691,7 +1691,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   indexToGrab: 1
-  partChannel: {fileID: 11400000, guid: 36e6ac4f2e478eb4995e13b9b4b72668, type: 2}
+  partChannel: {fileID: 11400000, guid: 7a4ab2309c840744fad5d5301c1c6a49, type: 2}
 --- !u!1001 &726697001
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1701,11 +1701,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1406007339979068993, guid: 536e6393b3d1a8e42a428d17108780d8, type: 3}
       propertyPath: m_text
-      value: Image 1
+      value: <sprite=2>
       objectReference: {fileID: 0}
     - target: {fileID: 1406007339979068993, guid: 536e6393b3d1a8e42a428d17108780d8, type: 3}
       propertyPath: m_fontSize
-      value: 35
+      value: 177.2
       objectReference: {fileID: 0}
     - target: {fileID: 1406007339979068993, guid: 536e6393b3d1a8e42a428d17108780d8, type: 3}
       propertyPath: m_fontAsset
@@ -1714,10 +1714,10 @@ PrefabInstance:
     - target: {fileID: 1406007339979068993, guid: 536e6393b3d1a8e42a428d17108780d8, type: 3}
       propertyPath: m_spriteAsset
       value: 
-      objectReference: {fileID: 11400000, guid: 4783b6437319e6d4384fca6c439a279d, type: 2}
+      objectReference: {fileID: 11400000, guid: f8da6bc8320cad548b3b6bb52a0e4c9c, type: 2}
     - target: {fileID: 1406007339979068993, guid: 536e6393b3d1a8e42a428d17108780d8, type: 3}
       propertyPath: m_fontSizeBase
-      value: 35
+      value: 177.2
       objectReference: {fileID: 0}
     - target: {fileID: 1406007339979068993, guid: 536e6393b3d1a8e42a428d17108780d8, type: 3}
       propertyPath: m_sharedMaterial
@@ -1868,7 +1868,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   indexToGrab: 0
-  partChannel: {fileID: 11400000, guid: 36e6ac4f2e478eb4995e13b9b4b72668, type: 2}
+  partChannel: {fileID: 11400000, guid: 7a4ab2309c840744fad5d5301c1c6a49, type: 2}
 --- !u!1 &802003707
 GameObject:
   m_ObjectHideFlags: 0

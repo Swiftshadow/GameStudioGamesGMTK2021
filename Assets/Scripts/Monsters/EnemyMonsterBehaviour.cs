@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using Channels;
+using Unity.VisualScripting;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -17,7 +18,7 @@ namespace Monsters
         [SerializeField]
         private BodyPartChannel enemyBodyChange;
 
-        [SerializeField] private BodyPartArrayChannel partSelectInfoSend;
+        [SerializeField] private IntChannel partSelectInfoSend;
 
         [SerializeField] private VoidChannel partSelectUI;
         
@@ -35,7 +36,7 @@ namespace Monsters
         [SerializeField] private BodyPartBaseSO[] enemyThreeParts = new BodyPartBaseSO[2];
 
         private List<List<BodyPartBaseSO>> enemies = new List<List<BodyPartBaseSO>>();
-        private BodyPartBaseSO[][] parts = new BodyPartBaseSO[2][];
+        private List<BodyPartBaseSO[]> parts = new List<BodyPartBaseSO[]>();
 
         private int counter = 0;
         private void GenerateAction()
@@ -73,7 +74,7 @@ namespace Monsters
         private void SendPartInfo()
         {
             Debug.Log("Sending part info!");
-            partSelectInfoSend.RaiseEvent(parts[counter]);
+            partSelectInfoSend.RaiseEvent(counter);
         }
 
         private void NextMonster()
@@ -101,8 +102,8 @@ namespace Monsters
             
             enemies.Add(enemyTwo);
             enemies.Add(enemyBoss);
-            parts[0] = enemyTwoParts;
-            parts[1] = enemyThreeParts;
+            parts.Add(enemyTwoParts);
+            parts.Add(enemyThreeParts);
         }
         
     }

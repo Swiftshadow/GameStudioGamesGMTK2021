@@ -9,7 +9,7 @@ namespace UI
     {
         [SerializeField] private int indexToGrab;
 
-        [SerializeField] private BodyPartArrayChannel partChannel;
+        [SerializeField] private IntChannel partChannel;
 
         private void OnEnable()
         {
@@ -21,14 +21,11 @@ namespace UI
             partChannel.OnEventRaised -= ShowIcon;
         }
 
-        private void ShowIcon(BodyPartBaseSO[] obj)
+        private void ShowIcon(int obj)
         {
             Debug.Log("Showing icon!");
-            TextMeshPro tmp = gameObject.GetComponent<TextMeshPro>();
-            TMP_SpriteAsset spriteAsset = new TMP_SpriteAsset();
-            spriteAsset.spriteSheet = obj[indexToGrab].sprite.texture;
-            tmp.spriteAsset = spriteAsset;
-            tmp.text = "<sprite index = 0>";
+            TextMeshProUGUI tmp = gameObject.GetComponent<TextMeshProUGUI>();
+            tmp.text = $"<sprite={obj + indexToGrab}>";
         }
     }
 }
