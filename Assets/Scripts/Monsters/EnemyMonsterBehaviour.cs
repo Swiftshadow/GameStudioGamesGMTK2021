@@ -17,9 +17,7 @@ namespace Monsters
         [SerializeField]
         private BodyPartChannel enemyBodyChange;
         
-        
-        [SerializeField]
-        private Queue<MONSTER_ACTIONS> actionList = new Queue<MONSTER_ACTIONS>();
+        private readonly Queue<MONSTER_ACTIONS> actionList = new Queue<MONSTER_ACTIONS>();
 
         [SerializeField] private VoidChannel nextMonster;
 
@@ -30,7 +28,7 @@ namespace Monsters
         private List<List<BodyPartBaseSO>> enemies = new List<List<BodyPartBaseSO>>();
 
         private int counter = 1;
-        public void GenerateAction()
+        private void GenerateAction()
         {
             MONSTER_ACTIONS newAction = (MONSTER_ACTIONS)Random.Range(0, (int) MONSTER_ACTIONS.STALL);
             actionList.Enqueue(newAction);
@@ -39,7 +37,7 @@ namespace Monsters
 
         public void DoAction()
         {
-            enemyDoActionChannel.RaiseEvent();
+            //enemyDoActionChannel.RaiseEvent();
             actionList.Dequeue();
             if (actionList.Count <= 2)
             {
@@ -51,11 +49,13 @@ namespace Monsters
         private void OnEnable()
         {
             nextMonster.OnEventRaised += NextMonster;
+            enemyDoActionChannel.OnEventRaised += DoAction;
         }
 
         private void OnDisable()
         {
             nextMonster.OnEventRaised -= NextMonster;
+            enemyDoActionChannel.OnEventRaised -= DoAction;
         }
 
         private void NextMonster()
@@ -72,8 +72,10 @@ namespace Monsters
             ++counter;
         }
 
+
         private void Start()
         {
+            GenerateAction();
             foreach (var monsterAction in actionList)
             {
                 enemyQueueActionChannel.RaiseEvent(monsterAction);

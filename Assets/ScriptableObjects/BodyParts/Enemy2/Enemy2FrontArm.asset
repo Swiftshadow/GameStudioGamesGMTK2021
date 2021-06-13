@@ -16,4 +16,4 @@ MonoBehaviour:
   baseAttack: 1
   baseDefense: 0
   baseDurability: 10
-  sprite: {fileID: 0}
+  sprite: {fileID: 21300000, guid: 0059b2c663ca9dc4f8e1dcd690c01c17, type: 3}

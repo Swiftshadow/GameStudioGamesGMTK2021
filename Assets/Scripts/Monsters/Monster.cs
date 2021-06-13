@@ -301,7 +301,12 @@ namespace Monsters
             int damage = obj - GetCurrentStats().defense;
             if (damage < 0)
             {
+                statMods.defense -= obj;
                 damage = 0;
+            }
+            else
+            {
+                statMods.defense = 0;
             }
             
             ChangeHealth(-damage);
